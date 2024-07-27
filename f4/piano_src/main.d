@@ -39,17 +39,19 @@ main.o: main.c \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/dispatch/nvic.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/f4/nvic.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/cm3/systick.h \
- /opt/gcc-arm-none-eabi/arm-none-eabi/include/stdio.h \
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/stdlib.h \
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/_ansi.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/newlib.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/config.h \
- /opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h \
- /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
  /opt/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
- /opt/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/reent.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/_ansi.h \
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/_types.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/_types.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/lock.h \
- /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/stdio.h
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/stdlib.h \
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/stdio.h \
+ /opt/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/stdio.h main.h
