@@ -78,18 +78,20 @@ void tim2_isr(void) {
                     if(arr_comparison & this_arr[i]) {
                         piano_dev.key_event_release_array[i] = 0;
                         piano_dev.key_cycles_1[i] = irq_timer_cnt;
+                        int b_j = 0;
+                        while(arr_comparison > 1){
+                            arr_comparison = arr_comparison / 2;
+                            b_j++;
+                        }
+                        piano_dev.key_buttons_array[i] = 21 + 11 * i + b_j;
                     } else {
                         if (piano_dev.key_event_push_array[i] == 0) {
                             char str_2[20];
                             unsigned int velocity = 0;
                             unsigned int note_state = 0x80;
-                            sprintf(str_2, "%02x %02x %03d %08x", note_state, i + arr_comparison, velocity,
-                                    arr_comparison);
-                            for (int p = 0; p < 20; p++) {
-                                usart_send_blocking(USART2, str_2[p]);
-                            }
-                            usart_send_blocking(USART2, '\r');
-                            usart_send_blocking(USART2, '\n');
+                            usart_send_blocking(USART2, note_state);
+                            usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
+                            usart_send_blocking(USART2, velocity);
                         }
                     }
                     piano_dev.key_event_push_array[i] = 1;
@@ -104,13 +106,10 @@ void tim2_isr(void) {
                         diff = irq_timer_cnt - piano_dev.key_cycles_1[i];
                         velocity = 40000 / diff;
                     }
-                    sprintf(str_2, "%02x %02x %03d %08x", note_state, i + arr_comparison, velocity, arr_comparison);
-                    for(int p = 0; p < 20; p++){
-                        usart_send_blocking(USART2, str_2[p]);
-                    }
-                    usart_send_blocking(USART2, '\r');
-                    usart_send_blocking(USART2, '\n');
 
+                    usart_send_blocking(USART2, note_state);
+                    usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
+                    usart_send_blocking(USART2, velocity);
                     piano_dev.key_event_push_array[i] = 0;
                 }
             }
@@ -175,6 +174,7 @@ void piano_device_init(void) {
         piano_dev.key_arr_2[i] = 0;
         piano_dev.key_event_push_array[i] = 0;
         piano_dev.key_event_release_array[i] = 0;
+        piano_dev.key_buttons_array[i] = 0;
         piano_dev.key_cnt_array[i] = 0;
         piano_dev.key_cycles_1[i] = 0;
         piano_dev.key_cycles_2[i] = 0;
