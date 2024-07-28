@@ -41,21 +41,36 @@ void tim2_isr(void) {
         /*Write value to 74HC input*/
         GPIOB_ODR &= ~(0x07 << 3);
         GPIOB_ODR |= (i << 3);
+
         if(irq_timer_cnt % 2 == 0) {
             piano_dev.key_arr_1[i] =
-                    ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & 0x1C00) >> 9) | ((GPIOA_IDR & GPIO15) >> 11) |
-                    ((GPIOA_IDR & 0x1F00) >> 3) | ((GPIOC_IDR & 0x3C0) << 4) | ((GPIOB_IDR & 0xF000) << 2) |
-                    ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & 0x03) << 20);
+                    ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & GPIO12) >> 11) | ((GPIOC_IDR & GPIO11) >> 9) |
+                    ((GPIOC_IDR & GPIO10) >> 7) | ((GPIOA_IDR & GPIO15) >> 11) | ((GPIOA_IDR & GPIO12) >> 7) |
+                    ((GPIOA_IDR & GPIO11) >> 5) | ((GPIOA_IDR & GPIO10) >> 3) | ((GPIOA_IDR & GPIO9) >> 1) |
+                    ((GPIOA_IDR & GPIO8) << 1) | ((GPIOC_IDR & GPIO9) << 1) | ((GPIOC_IDR & GPIO8) << 3) |
+                    ((GPIOC_IDR & GPIO7) << 5) | ((GPIOC_IDR & GPIO6) << 7) | ((GPIOB_IDR & GPIO15) >> 1) |
+                    ((GPIOB_IDR & GPIO14) << 1) | ((GPIOB_IDR & GPIO13) << 3) | ((GPIOB_IDR & GPIO12) << 5) |
+                    ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & GPIO2) << 17) | ((GPIOB_IDR & GPIO1) << 19) |
+                    ((GPIOB_IDR & GPIO0) << 21);
         }
         else {
             piano_dev.key_arr_2[i] =
-                    ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & 0x1C00) >> 9) | ((GPIOA_IDR & GPIO15) >> 11) |
-                    ((GPIOA_IDR & 0x1F00) >> 3) | ((GPIOC_IDR & 0x3C0) << 4) | ((GPIOB_IDR & 0xF000) << 2) |
-                    ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & 0x03) << 20);
+                    ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & GPIO12) >> 11) | ((GPIOC_IDR & GPIO11) >> 9) |
+                    ((GPIOC_IDR & GPIO10) >> 7) | ((GPIOA_IDR & GPIO15) >> 11) | ((GPIOA_IDR & GPIO12) >> 7) |
+                    ((GPIOA_IDR & GPIO11) >> 5) | ((GPIOA_IDR & GPIO10) >> 3) | ((GPIOA_IDR & GPIO9) >> 1) |
+                    ((GPIOA_IDR & GPIO8) << 1) | ((GPIOC_IDR & GPIO9) << 1) | ((GPIOC_IDR & GPIO8) << 3) |
+                    ((GPIOC_IDR & GPIO7) << 5) | ((GPIOC_IDR & GPIO6) << 7) | ((GPIOB_IDR & GPIO15) >> 1) |
+                    ((GPIOB_IDR & GPIO14) << 1) | ((GPIOB_IDR & GPIO13) << 3) | ((GPIOB_IDR & GPIO12) << 5) |
+                    ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & GPIO2) << 17) | ((GPIOB_IDR & GPIO1) << 19) |
+                    ((GPIOB_IDR & GPIO0) << 21);
         }
+
+        piano_dev.key_cnt_array[i]++;
         unsigned int arr_comparison = piano_dev.key_arr_1[i] ^ piano_dev.key_arr_2[i];
         if(arr_comparison){
-            if(arr_comparison & CHEK_ODD) {
+            if((arr_comparison & CHEK_EVEN) && (piano_dev.key_event_array[i])) {
+                piano_dev.key_cnt_array[i] = 0;
+                piano_dev.key_event_array[i] = 0;
                 usart_send_blocking(USART2, 'o');
                 usart_send_blocking(USART2, 'k');
                 usart_send_blocking(USART2, '\r');
@@ -68,7 +83,11 @@ void tim2_isr(void) {
 //                piano_dev.key_event_this->button_row = i;
 //                piano_dev.key_event_this = piano_dev.key_event_this->key_event_next;
             } else {
-//                piano_dev.key_event_this->press_time_1 = irq_timer_cnt;
+                if(piano_dev.key_cnt_array[i] > 10000){
+                    piano_dev.key_cnt_array[i] = 0;
+                    piano_dev.key_event_array[i] = 1;
+                }
+                //piano_dev.key_event_this->press_time_1 = irq_timer_cnt;
             }
         }
     }
@@ -129,9 +148,10 @@ void piano_device_init(void) {
     for (int i = 0; i < 8; i++) {
         piano_dev.key_arr_1[i] = 0;
         piano_dev.key_arr_2[i] = 0;
+        piano_dev.key_event_array[i] = 1;
+        piano_dev.key_cnt_array[i] = 0;
         for(int j = 0; j < 22; j++) {
             piano_dev.key_cycles_array[i][j] = 0;
-            piano_dev.key_event_array[i][j] = 0;
         }
     }
 
