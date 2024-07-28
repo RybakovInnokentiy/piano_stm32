@@ -9,8 +9,11 @@
 struct piano_board {
     unsigned int key_arr_1[8];
     unsigned int key_arr_2[8];
+    unsigned int key_cycles_2[8];
+    unsigned int key_cycles_1[8];
     unsigned int key_cycles_array[8][22];
-    unsigned int key_event_array[8];
+    unsigned int key_event_push_array[8];
+    unsigned int key_event_release_array[8];
     unsigned int key_cnt_array[8];
     struct key_event *key_event_this;
     struct key_event *key_event_read_this;
