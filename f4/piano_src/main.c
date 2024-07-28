@@ -9,59 +9,71 @@
 #include <stdio.h>
 #include "main.h"
 
-static unsigned int irq_timer_cnt = 0;
-struct piano_board piano_dev;
+unsigned int volatile irq_timer_cnt = 0;
+static struct piano_board piano_dev;
+
+void uart_debug(char *str, int cnt){
+    for(int i = 0; i < cnt; i++){
+        usart_send_blocking(USART2, str[i]);
+
+    }
+    usart_send_blocking(USART2, '\r');
+    usart_send_blocking(USART2, '\n');
+
+}
+
+void uart_debug_int(unsigned int number){
+    char str_1[4];
+    sprintf(str_1, "%02d", number);
+    for(int i = 0; i < 4; i++){
+        usart_send_blocking(USART2, str_1[i]);
+
+    }
+    usart_send_blocking(USART2, '\r');
+    usart_send_blocking(USART2, '\n');
+
+}
 
 void tim2_isr(void) {
     timer_clear_flag(TIM2, TIM_SR_UIF);
     timer_disable_irq(TIM2, TIM_DIER_UIE);
-
     for(int i = 0; i < 8; i++){
         /*Write value to 74HC input*/
         GPIOB_ODR &= ~(0x07 << 3);
         GPIOB_ODR |= (i << 3);
-        __asm__("nop");
-        if(irq_timer_cnt % 2 == 0)
-            piano_dev.key_arr_1[i] = ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & 0x1C00) >> 9) | ((GPIOA_IDR & GPIO15) >> 11) |
+        if(irq_timer_cnt % 2 == 0) {
+            piano_dev.key_arr_1[i] =
+                    ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & 0x1C00) >> 9) | ((GPIOA_IDR & GPIO15) >> 11) |
                     ((GPIOA_IDR & 0x1F00) >> 3) | ((GPIOC_IDR & 0x3C0) << 4) | ((GPIOB_IDR & 0xF000) << 2) |
                     ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & 0x03) << 20);
-        else
-            piano_dev.key_arr_2[i] = ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & 0x1C00) >> 9) | ((GPIOA_IDR & GPIO15) >> 11) |
-                                     ((GPIOA_IDR & 0x1F00) >> 3) | ((GPIOC_IDR & 0x3C0) << 4) | ((GPIOB_IDR & 0xF000) << 2) |
-                                     ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & 0x03) << 20);
-
+        }
+        else {
+            piano_dev.key_arr_2[i] =
+                    ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & 0x1C00) >> 9) | ((GPIOA_IDR & GPIO15) >> 11) |
+                    ((GPIOA_IDR & 0x1F00) >> 3) | ((GPIOC_IDR & 0x3C0) << 4) | ((GPIOB_IDR & 0xF000) << 2) |
+                    ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & 0x03) << 20);
+        }
         unsigned int arr_comparison = piano_dev.key_arr_1[i] ^ piano_dev.key_arr_2[i];
         if(arr_comparison){
-            char str_1[11];
-            sprintf(str_1, "0x%08x", arr_comparison);
-            for(int k = 0; k < 11; k++){
-                usart_send_blocking(USART2, str_1[k]);
-            }
-            usart_send_blocking(USART2, '\r');
-            usart_send_blocking(USART2, '\n');
+            if(arr_comparison & CHEK_ODD) {
+                usart_send_blocking(USART2, 'o');
+                usart_send_blocking(USART2, 'k');
+                usart_send_blocking(USART2, '\r');
+                usart_send_blocking(USART2, '\n');
 
-//            usart_send(USART2, (uint16_t)piano_dev.key_arr_2[i]);
-//            usart_send(USART2, (uint16_t)(piano_dev.key_arr_2[i] >> 16));
-        }
-        for(int j = 0; j < 22; j++){
-
-            if(arr_comparison & j) {
-
-                piano_dev.key_cycles_array[i][j] = ((arr_comparison >> j) & 0x01) * irq_timer_cnt;
-                if (j % 2 != 0) {
-                    piano_dev.key_event_this->valid = 1;
-                    piano_dev.key_event_this->press_time_1 = piano_dev.key_cycles_array[i][j - 1];
-                    piano_dev.key_event_this->press_time_2 = piano_dev.key_cycles_array[i][j];
-                    piano_dev.key_event_this->button_num = i + j;
-                    piano_dev.key_event_this->note_state = ((piano_dev.key_cycles_array[i][j] & (1 << j)) == 1) ? 1 : 0;
-
-                }
+//                piano_dev.key_event_this->valid = 1;
+//                piano_dev.key_event_this->press_time_2 = irq_timer_cnt;
+//                piano_dev.key_event_this->note_state ^= 0x01;
+//                piano_dev.key_event_this->button_num = arr_comparison;
+//                piano_dev.key_event_this->button_row = i;
+//                piano_dev.key_event_this = piano_dev.key_event_this->key_event_next;
+            } else {
+//                piano_dev.key_event_this->press_time_1 = irq_timer_cnt;
             }
         }
     }
-
-    timer_enable_irq(TIM2, TIM_DIER_UIE);
     irq_timer_cnt++;
+    timer_enable_irq(TIM2, TIM_DIER_UIE);
 }
 
 static void clock_setup(void) {
@@ -123,33 +135,45 @@ void piano_device_init(void) {
         }
     }
 
-    static struct key_event key_event_arr[200] = {{0, 0, 0,0,NULL}};
+    static struct key_event key_event_arr[200] = {{0, 0,0, 0,0,0,NULL}};
     for(int i = 0; i < 199; i++){
         key_event_arr[i].key_event_next = &key_event_arr[i+1];
+        key_event_arr[i].button_num = 0;
+        key_event_arr[i].button_row = 0;
+        key_event_arr[i].press_time_1 = 0;
+        key_event_arr[i].press_time_2 = 0;
+        key_event_arr[i].valid = 0;
+        key_event_arr[i].note_state = 0;
     }
     key_event_arr[199].key_event_next = &key_event_arr[0];
     piano_dev.key_event_this = &key_event_arr[0];
+    piano_dev.key_event_read_this = &key_event_arr[0];
 }
 
-int calculate_velocity(int col, int row){
-    return piano_dev.key_cycles_array[col][row + 1] - piano_dev.key_cycles_array[col][row];;
-}
+
 void process_request(void) {
-    unsigned int velocity;
-    if(piano_dev.key_event_this->valid){
-        if (piano_dev.key_event_this->note_state){
-            velocity = (piano_dev.key_event_this->press_time_2 - piano_dev.key_event_this->press_time_1) / VELOCITY_STEP;
-        } else {
-            velocity = 0;
+    unsigned int velocity = 0;
+    unsigned int but_num = 0;
+    if(piano_dev.key_event_read_this->valid != 0){
+        if (piano_dev.key_event_read_this->note_state != 0){
+            velocity = (6350) / (piano_dev.key_event_read_this->press_time_2 - piano_dev.key_event_read_this->press_time_1);
         }
-        piano_dev.key_event_this->valid = 0;
 
-        usart_send(USART2, (uint16_t) piano_dev.key_event_this->note_state);
-        usart_send(USART2, ' ');
-        usart_send(USART2, (uint16_t) piano_dev.key_event_this->button_num);
-        usart_send(USART2, ' ');
-        usart_send(USART2, (uint16_t) velocity);
-        piano_dev.key_event_this = piano_dev.key_event_this->key_event_next;
+        for(int j = 0; j < 22; j++){
+            if(piano_dev.key_event_read_this->button_num & (1 << j)) {
+                but_num = j;
+                break;
+            }
+        }
+        char str_2[10];
+        sprintf(str_2, "%02d %02d %03d", piano_dev.key_event_read_this->note_state, piano_dev.key_event_read_this->button_row + but_num, velocity);
+        piano_dev.key_event_read_this->valid = 0;
+        for(int u = 0; u < 10; u++){
+            usart_send_blocking(USART2, str_2[u]);
+        }
+        usart_send_blocking(USART2, '\r');
+        usart_send_blocking(USART2, '\n');
+        piano_dev.key_event_read_this = piano_dev.key_event_read_this->key_event_next;
     }
 
 }
@@ -162,6 +186,7 @@ int main(void) {
     gpio_clear(GPIOA, GPIO7);
     timer_setup();
     while (1) {
+//        uart_debug_int(irq_timer_cnt);
 //        process_request();
     }
 }
