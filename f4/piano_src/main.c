@@ -8,9 +8,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
+#include <math.h>
 
 unsigned int volatile irq_timer_cnt = 0;
 static struct piano_board piano_dev;
+unsigned int keys_map[8][22];
 
 void uart_debug(char *str, int cnt){
     for(int i = 0; i < cnt; i++){
@@ -97,16 +99,18 @@ void tim2_isr(void) {
                     piano_dev.key_event_push_array[i] = 1;
                 } else if ((arr_comparison & CHEK_EVEN) && (piano_dev.key_event_release_array[i] == 0)) {
                     piano_dev.key_event_release_array[i] = 1;
-                    char str_2[20];
+                    char str_2[4];
                     unsigned int velocity = 0;
                     unsigned int note_state = 0x80;
                     unsigned int diff = 0;
                     if (piano_dev.key_event_push_array[i] == 1) {
                         note_state = 0x90;
                         diff = irq_timer_cnt - piano_dev.key_cycles_1[i];
-                        velocity = 40000 / diff;
+                        velocity = 50000 / diff;
                     }
-
+                    int map_row = log2(arr_comparison);
+                    piano_dev.key_buttons_array[i] = keys_map[i][map_row];
+                    if(velocity > 127) velocity = 127;
                     usart_send_blocking(USART2, note_state);
                     usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
                     usart_send_blocking(USART2, velocity);
@@ -180,6 +184,23 @@ void piano_device_init(void) {
         piano_dev.key_cycles_2[i] = 0;
         for(int j = 0; j < 22; j++) {
             piano_dev.key_cycles_array[i][j] = 0;
+            keys_map[i][j] = 0;
+        }
+    }
+
+    /*Fill first row*/
+    keys_map[0][1] = 108;
+    keys_map[1][1] = 104;
+    keys_map[2][1] = 106;
+    keys_map[3][1] = 102;
+    keys_map[4][1] = 107;
+    keys_map[5][1] = 103;
+    keys_map[6][1] = 105;
+    keys_map[7][1] = 101;
+
+    for(int i = 3; i < 22; i+= 2){
+        for(int j = 0; j < 8; j++){
+            keys_map[j][i] = keys_map[j][i - 2] - 8;
         }
     }
 
@@ -235,6 +256,7 @@ int main(void) {
     timer_setup();
 
     while (1) {
+
 //        uart_debug_int(irq_timer_cnt);
 //        process_request();
     }

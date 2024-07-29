@@ -24,10 +24,16 @@ Archive member included to satisfy reference by file (symbol)
                               /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o) (flash_dcache_enable)
 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
                               /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o) (pwr_set_vos_scale)
+/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+                              main.o (log)
+/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o) (nan)
+/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o) (__ieee754_log)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
                               main.o (sprintf)
-/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
-                              main.o (memset)
+/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o) (__errno)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o) (_impure_ptr)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
@@ -52,6 +58,8 @@ Archive member included to satisfy reference by file (symbol)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mallocr.o) (__malloc_lock)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wcsrtombs.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (_wcsrtombs_r)
+/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o) (memset)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (_dtoa_r)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-lock.o)
@@ -106,8 +114,6 @@ Archive member included to satisfy reference by file (symbol)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-locale.o) (__ascii_mbtowc)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-assert.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o) (__assert_func)
-/opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sysconf.o) (__errno)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o) (_Balloc)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-callocr.o)
@@ -155,17 +161,17 @@ Archive member included to satisfy reference by file (symbol)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-fvwrite.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprint_r.o) (__sfvwrite_r)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldf3.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (__aeabi_dmul)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o) (__aeabi_dmul)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (__aeabi_dsub)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o) (__aeabi_dsub)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o) (__aeabi_ddiv)
+                              main.o (__aeabi_ddiv)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (__aeabi_dcmpeq)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o) (__aeabi_dcmpeq)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (__aeabi_dcmpun)
+                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o) (__aeabi_dcmpun)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
-                              /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o) (__aeabi_d2iz)
+                              main.o (__aeabi_d2iz)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-closer.o) (_close)
 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(fstat.o)
@@ -239,19 +245,17 @@ Discarded input sections
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
  .text.uart_debug
-                0x00000000       0x34 main.o
- .rodata.uart_debug_int.str1.1
-                0x00000000        0x5 main.o
+                0x00000000       0x4c main.o
+ .rodata        0x00000000       0x17 main.o
  .text.uart_debug_int
-                0x00000000       0x3c main.o
- .rodata.process_request.str1.1
-                0x00000000        0xf main.o
+                0x00000000       0x5c main.o
  .text.process_request
-                0x00000000       0xa0 main.o
+                0x00000000       0xf4 main.o
  .group         0x00000000        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .group         0x00000000        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .group         0x00000000        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
@@ -282,7 +286,6 @@ Discarded input sections
                 0x00000000        0x4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .text.gpio_port_config_lock
                 0x00000000       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_macro   0x00000000      0xacc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .debug_macro   0x00000000       0x1c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .debug_macro   0x00000000       0x22 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .debug_macro   0x00000000       0x56 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
@@ -953,6 +956,15 @@ Discarded input sections
  .debug_macro   0x00000000      0x280 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
  .debug_macro   0x00000000       0x8e /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
  .debug_macro   0x00000000       0x46 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+ .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+ .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+ .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+ .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+ .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+ .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+ .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+ .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+ .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
@@ -962,18 +974,12 @@ Discarded input sections
  .debug_frame   0x00000000       0x78 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
  .ARM.attributes
                 0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
- .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
- .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
- .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+ .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
+ .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
+ .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
- .data._impure_ptr
-                0x00000000        0x4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
- .data._impure_data
-                0x00000000      0x140 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
- .ARM.attributes
-                0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
@@ -998,12 +1004,8 @@ Discarded input sections
  .text.__fp_unlock_all
                 0x00000000       0x24 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
  .data.__sglue  0x00000000        0xc /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
- .bss.__sf      0x00000000      0x138 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
  .bss.__stdio_exit_handler
                 0x00000000        0x4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
- .debug_frame   0x00000000      0x13c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
- .ARM.attributes
-                0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
@@ -1116,6 +1118,13 @@ Discarded input sections
  .debug_frame   0x00000000       0x50 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wcsrtombs.o)
  .ARM.attributes
                 0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wcsrtombs.o)
+ .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+ .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+ .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+ .text.memset   0x00000000       0xa4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+ .debug_frame   0x00000000       0x2c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+ .ARM.attributes
+                0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
@@ -1446,13 +1455,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x40 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-assert.o)
  .ARM.attributes
                 0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-assert.o)
- .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
- .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
- .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
- .text.__errno  0x00000000        0xc /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
- .debug_frame   0x00000000       0x20 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
- .ARM.attributes
-                0x00000000       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
@@ -1711,46 +1713,16 @@ Discarded input sections
  .debug_frame   0x00000000       0x30 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldf3.o)
  .ARM.attributes
                 0x00000000       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldf3.o)
- .text          0x00000000      0x378 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .debug_line_str
-                0x00000000       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00000000       0xac /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .ARM.attributes
-                0x00000000       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .text          0x00000000      0x424 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
- .debug_line_str
-                0x00000000       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00000000       0x50 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
- .ARM.attributes
-                0x00000000       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
- .text          0x00000000      0x110 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
- .debug_line_str
-                0x00000000       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x00000000       0xc4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
- .ARM.attributes
-                0x00000000       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
- .text          0x00000000       0x2c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
- .debug_line_str
-                0x00000000       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
- .debug_frame   0x00000000       0x20 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
- .ARM.attributes
-                0x00000000       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
- .text          0x00000000       0x50 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
- .debug_line_str
-                0x00000000       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
- .debug_frame   0x00000000       0x24 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
- .ARM.attributes
-                0x00000000       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
  .text          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
  .data          0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
  .bss           0x00000000        0x0 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(close.o)
@@ -1851,6 +1823,7 @@ Linker script and memory map
 
 LOAD main.o
 LOAD /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a
+LOAD /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 START GROUP
 LOAD /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a
 LOAD /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a
@@ -1862,317 +1835,374 @@ LOAD /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-
 LOAD /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a
 END GROUP
 
-.text           0x08000000      0xcf0
+.text           0x08000000     0x1d00
  *(.vectors)
  .vectors       0x08000000      0x1ac /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
                 0x08000000                vector_table
  *(.text*)
+ *fill*         0x080001ac        0x4 
  .text.tim2_isr
-                0x080001ac      0x294 main.o
-                0x080001ac                tim2_isr
+                0x080001b0      0x3d0 main.o
+                0x080001b0                tim2_isr
+ .text.clock_setup
+                0x08000580       0x44 main.o
  .text.gpio_setup
-                0x08000440       0x68 main.o
-                0x08000440                gpio_setup
+                0x080005c4       0x68 main.o
+                0x080005c4                gpio_setup
  .text.timer_setup
-                0x080004a8       0x44 main.o
-                0x080004a8                timer_setup
+                0x0800062c       0x4c main.o
+                0x0800062c                timer_setup
  .text.usart_setup
-                0x080004ec       0x60 main.o
-                0x080004ec                usart_setup
+                0x08000678       0x60 main.o
+                0x08000678                usart_setup
  .text.piano_device_init
-                0x0800054c       0x4c main.o
-                0x0800054c                piano_device_init
- .text.startup.main
-                0x08000598       0x5c main.o
-                0x08000598                main
+                0x080006d8      0x21c main.o
+                0x080006d8                piano_device_init
+ .text.main     0x080008f4       0x28 main.o
+                0x080008f4                main
  .text.gpio_clear
-                0x080005f4        0x6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
-                0x080005f4                gpio_clear
+                0x0800091c        0x6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+                0x0800091c                gpio_clear
  .text.gpio_mode_setup
-                0x080005fa       0x40 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
-                0x080005fa                gpio_mode_setup
+                0x08000922       0x40 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+                0x08000922                gpio_mode_setup
  .text.gpio_set_af
-                0x0800063a       0x58 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
-                0x0800063a                gpio_set_af
+                0x08000962       0x58 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+                0x08000962                gpio_set_af
  .text.rcc_periph_clock_enable
-                0x08000692       0x1a /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
-                0x08000692                rcc_periph_clock_enable
+                0x080009ba       0x1a /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+                0x080009ba                rcc_periph_clock_enable
  .text.rcc_is_osc_ready
-                0x080006ac       0x64 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x080006ac                rcc_is_osc_ready
+                0x080009d4       0x64 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x080009d4                rcc_is_osc_ready
  .text.rcc_wait_for_osc_ready
-                0x08000710       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000710                rcc_wait_for_osc_ready
+                0x08000a38       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000a38                rcc_wait_for_osc_ready
  .text.rcc_osc_on
-                0x08000720       0x74 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000720                rcc_osc_on
+                0x08000a48       0x74 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000a48                rcc_osc_on
  .text.rcc_osc_off
-                0x08000794       0x74 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000794                rcc_osc_off
+                0x08000abc       0x74 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000abc                rcc_osc_off
  .text.rcc_set_sysclk_source
-                0x08000808       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000808                rcc_set_sysclk_source
+                0x08000b30       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000b30                rcc_set_sysclk_source
  .text.rcc_set_ppre2
-                0x08000820       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000820                rcc_set_ppre2
+                0x08000b48       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000b48                rcc_set_ppre2
  .text.rcc_set_ppre1
-                0x08000838       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000838                rcc_set_ppre1
+                0x08000b60       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000b60                rcc_set_ppre1
  .text.rcc_set_hpre
-                0x08000850       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000850                rcc_set_hpre
+                0x08000b78       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000b78                rcc_set_hpre
  .text.rcc_set_main_pll_hsi
-                0x08000868       0x44 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000868                rcc_set_main_pll_hsi
+                0x08000b90       0x44 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000b90                rcc_set_main_pll_hsi
  .text.rcc_set_main_pll_hse
-                0x080008ac       0x44 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x080008ac                rcc_set_main_pll_hse
+                0x08000bd4       0x44 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000bd4                rcc_set_main_pll_hse
  .text.rcc_clock_setup_pll
-                0x080008f0       0xe4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x080008f0                rcc_clock_setup_pll
+                0x08000c18       0xe4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000c18                rcc_clock_setup_pll
  .text.rcc_get_usart_clk_freq
-                0x080009d4       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x080009d4                rcc_get_usart_clk_freq
+                0x08000cfc       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08000cfc                rcc_get_usart_clk_freq
  .text.timer_enable_irq
-                0x080009f4        0x8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
-                0x080009f4                timer_enable_irq
+                0x08000d1c        0x8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x08000d1c                timer_enable_irq
  .text.timer_disable_irq
-                0x080009fc        0xa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
-                0x080009fc                timer_disable_irq
+                0x08000d24        0xa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x08000d24                timer_disable_irq
  .text.timer_clear_flag
-                0x08000a06        0x6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
-                0x08000a06                timer_clear_flag
+                0x08000d2e        0x6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x08000d2e                timer_clear_flag
  .text.timer_enable_counter
-                0x08000a0c        0xa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
-                0x08000a0c                timer_enable_counter
+                0x08000d34        0xa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x08000d34                timer_enable_counter
  .text.timer_set_prescaler
-                0x08000a16        0x4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
-                0x08000a16                timer_set_prescaler
+                0x08000d3e        0x4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x08000d3e                timer_set_prescaler
  .text.timer_set_period
-                0x08000a1a        0x4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
-                0x08000a1a                timer_set_period
+                0x08000d42        0x4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x08000d42                timer_set_period
  .text.usart_set_baudrate
-                0x08000a1e       0x16 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a1e                usart_set_baudrate
+                0x08000d46       0x16 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d46                usart_set_baudrate
  .text.usart_set_databits
-                0x08000a34       0x12 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a34                usart_set_databits
+                0x08000d5c       0x12 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d5c                usart_set_databits
  .text.usart_set_stopbits
-                0x08000a46        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a46                usart_set_stopbits
+                0x08000d6e        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d6e                usart_set_stopbits
  .text.usart_set_parity
-                0x08000a52        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a52                usart_set_parity
+                0x08000d7a        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d7a                usart_set_parity
  .text.usart_set_mode
-                0x08000a5e        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a5e                usart_set_mode
+                0x08000d86        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d86                usart_set_mode
  .text.usart_set_flow_control
-                0x08000a6a        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a6a                usart_set_flow_control
+                0x08000d92        0xc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d92                usart_set_flow_control
  .text.usart_enable
-                0x08000a76        0xa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a76                usart_enable
+                0x08000d9e        0xa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000d9e                usart_enable
  .text.usart_send_blocking
-                0x08000a80       0x16 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
-                0x08000a80                usart_send_blocking
+                0x08000da8       0x16 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x08000da8                usart_send_blocking
  .text.usart_send
-                0x08000a96        0x8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
-                0x08000a96                usart_send
+                0x08000dbe        0x8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+                0x08000dbe                usart_send
  .text.usart_wait_send_ready
-                0x08000a9e        0x8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
-                0x08000a9e                usart_wait_send_ready
+                0x08000dc6        0x8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+                0x08000dc6                usart_wait_send_ready
  .text.blocking_handler
-                0x08000aa6        0x2 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
-                0x08000aa6                dma2_stream1_isr
-                0x08000aa6                tim8_brk_tim12_isr
-                0x08000aa6                dma1_stream7_isr
-                0x08000aa6                usart3_isr
-                0x08000aa6                tim7_isr
-                0x08000aa6                dma2d_isr
-                0x08000aa6                uart8_isr
-                0x08000aa6                dma1_stream2_isr
-                0x08000aa6                otg_hs_isr
-                0x08000aa6                blocking_handler
-                0x08000aa6                tim5_isr
-                0x08000aa6                rtc_wkup_isr
-                0x08000aa6                otg_fs_isr
-                0x08000aa6                spi1_isr
-                0x08000aa6                i2c3_er_isr
-                0x08000aa6                exti2_isr
-                0x08000aa6                spi5_isr
-                0x08000aa6                usb_fs_wkup_isr
-                0x08000aa6                tamp_stamp_isr
-                0x08000aa6                can1_rx1_isr
-                0x08000aa6                dma2_stream0_isr
-                0x08000aa6                usart1_isr
-                0x08000aa6                i2c3_ev_isr
-                0x08000aa6                usage_fault_handler
-                0x08000aa6                can2_rx0_isr
-                0x08000aa6                dma1_stream6_isr
-                0x08000aa6                can2_rx1_isr
-                0x08000aa6                can1_sce_isr
-                0x08000aa6                tim1_cc_isr
-                0x08000aa6                can1_tx_isr
-                0x08000aa6                tim1_up_tim10_isr
-                0x08000aa6                sdio_isr
-                0x08000aa6                eth_isr
-                0x08000aa6                spi6_isr
-                0x08000aa6                dma2_stream5_isr
-                0x08000aa6                pvd_isr
-                0x08000aa6                can1_rx0_isr
-                0x08000aa6                rcc_isr
-                0x08000aa6                dma2_stream3_isr
-                0x08000aa6                flash_isr
-                0x08000aa6                uart4_isr
-                0x08000aa6                lcd_tft_isr
-                0x08000aa6                rtc_alarm_isr
-                0x08000aa6                exti15_10_isr
-                0x08000aa6                hash_rng_isr
-                0x08000aa6                tim1_trg_com_tim11_isr
-                0x08000aa6                hard_fault_handler
-                0x08000aa6                exti1_isr
-                0x08000aa6                i2c1_ev_isr
-                0x08000aa6                usart6_isr
-                0x08000aa6                spi2_isr
-                0x08000aa6                cryp_isr
-                0x08000aa6                nvic_wwdg_isr
-                0x08000aa6                dma1_stream1_isr
-                0x08000aa6                dma2_stream4_isr
-                0x08000aa6                exti3_isr
-                0x08000aa6                tim3_isr
-                0x08000aa6                usart2_isr
-                0x08000aa6                sai1_isr
-                0x08000aa6                fpu_isr
-                0x08000aa6                dma1_stream4_isr
-                0x08000aa6                i2c2_er_isr
-                0x08000aa6                i2c2_ev_isr
-                0x08000aa6                uart5_isr
-                0x08000aa6                dma2_stream6_isr
-                0x08000aa6                spi4_isr
-                0x08000aa6                adc_isr
-                0x08000aa6                dma2_stream7_isr
-                0x08000aa6                tim8_up_tim13_isr
-                0x08000aa6                fsmc_isr
-                0x08000aa6                exti4_isr
-                0x08000aa6                tim6_dac_isr
-                0x08000aa6                dma1_stream3_isr
-                0x08000aa6                tim8_trg_com_tim14_isr
-                0x08000aa6                mem_manage_handler
-                0x08000aa6                lcd_tft_err_isr
-                0x08000aa6                can2_tx_isr
-                0x08000aa6                exti9_5_isr
-                0x08000aa6                tim1_brk_tim9_isr
-                0x08000aa6                uart7_isr
-                0x08000aa6                can2_sce_isr
-                0x08000aa6                tim4_isr
-                0x08000aa6                otg_hs_wkup_isr
-                0x08000aa6                i2c1_er_isr
-                0x08000aa6                dma1_stream0_isr
-                0x08000aa6                tim8_cc_isr
-                0x08000aa6                dcmi_isr
-                0x08000aa6                dma2_stream2_isr
-                0x08000aa6                eth_wkup_isr
-                0x08000aa6                bus_fault_handler
-                0x08000aa6                otg_hs_ep1_out_isr
-                0x08000aa6                spi3_isr
-                0x08000aa6                dma1_stream5_isr
-                0x08000aa6                otg_hs_ep1_in_isr
-                0x08000aa6                exti0_isr
+                0x08000dce        0x2 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+                0x08000dce                dma2_stream1_isr
+                0x08000dce                tim8_brk_tim12_isr
+                0x08000dce                dma1_stream7_isr
+                0x08000dce                usart3_isr
+                0x08000dce                tim7_isr
+                0x08000dce                dma2d_isr
+                0x08000dce                uart8_isr
+                0x08000dce                dma1_stream2_isr
+                0x08000dce                otg_hs_isr
+                0x08000dce                blocking_handler
+                0x08000dce                tim5_isr
+                0x08000dce                rtc_wkup_isr
+                0x08000dce                otg_fs_isr
+                0x08000dce                spi1_isr
+                0x08000dce                i2c3_er_isr
+                0x08000dce                exti2_isr
+                0x08000dce                spi5_isr
+                0x08000dce                usb_fs_wkup_isr
+                0x08000dce                tamp_stamp_isr
+                0x08000dce                can1_rx1_isr
+                0x08000dce                dma2_stream0_isr
+                0x08000dce                usart1_isr
+                0x08000dce                i2c3_ev_isr
+                0x08000dce                usage_fault_handler
+                0x08000dce                can2_rx0_isr
+                0x08000dce                dma1_stream6_isr
+                0x08000dce                can2_rx1_isr
+                0x08000dce                can1_sce_isr
+                0x08000dce                tim1_cc_isr
+                0x08000dce                can1_tx_isr
+                0x08000dce                tim1_up_tim10_isr
+                0x08000dce                sdio_isr
+                0x08000dce                eth_isr
+                0x08000dce                spi6_isr
+                0x08000dce                dma2_stream5_isr
+                0x08000dce                pvd_isr
+                0x08000dce                can1_rx0_isr
+                0x08000dce                rcc_isr
+                0x08000dce                dma2_stream3_isr
+                0x08000dce                flash_isr
+                0x08000dce                uart4_isr
+                0x08000dce                lcd_tft_isr
+                0x08000dce                rtc_alarm_isr
+                0x08000dce                exti15_10_isr
+                0x08000dce                hash_rng_isr
+                0x08000dce                tim1_trg_com_tim11_isr
+                0x08000dce                hard_fault_handler
+                0x08000dce                exti1_isr
+                0x08000dce                i2c1_ev_isr
+                0x08000dce                usart6_isr
+                0x08000dce                spi2_isr
+                0x08000dce                cryp_isr
+                0x08000dce                nvic_wwdg_isr
+                0x08000dce                dma1_stream1_isr
+                0x08000dce                dma2_stream4_isr
+                0x08000dce                exti3_isr
+                0x08000dce                tim3_isr
+                0x08000dce                usart2_isr
+                0x08000dce                sai1_isr
+                0x08000dce                fpu_isr
+                0x08000dce                dma1_stream4_isr
+                0x08000dce                i2c2_er_isr
+                0x08000dce                i2c2_ev_isr
+                0x08000dce                uart5_isr
+                0x08000dce                dma2_stream6_isr
+                0x08000dce                spi4_isr
+                0x08000dce                adc_isr
+                0x08000dce                dma2_stream7_isr
+                0x08000dce                tim8_up_tim13_isr
+                0x08000dce                fsmc_isr
+                0x08000dce                exti4_isr
+                0x08000dce                tim6_dac_isr
+                0x08000dce                dma1_stream3_isr
+                0x08000dce                tim8_trg_com_tim14_isr
+                0x08000dce                mem_manage_handler
+                0x08000dce                lcd_tft_err_isr
+                0x08000dce                can2_tx_isr
+                0x08000dce                exti9_5_isr
+                0x08000dce                tim1_brk_tim9_isr
+                0x08000dce                uart7_isr
+                0x08000dce                can2_sce_isr
+                0x08000dce                tim4_isr
+                0x08000dce                otg_hs_wkup_isr
+                0x08000dce                i2c1_er_isr
+                0x08000dce                dma1_stream0_isr
+                0x08000dce                tim8_cc_isr
+                0x08000dce                dcmi_isr
+                0x08000dce                dma2_stream2_isr
+                0x08000dce                eth_wkup_isr
+                0x08000dce                bus_fault_handler
+                0x08000dce                otg_hs_ep1_out_isr
+                0x08000dce                spi3_isr
+                0x08000dce                dma1_stream5_isr
+                0x08000dce                otg_hs_ep1_in_isr
+                0x08000dce                exti0_isr
  .text.null_handler
-                0x08000aa8        0x2 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
-                0x08000aa8                null_handler
-                0x08000aa8                sv_call_handler
-                0x08000aa8                pend_sv_handler
-                0x08000aa8                debug_monitor_handler
-                0x08000aa8                sys_tick_handler
-                0x08000aa8                nmi_handler
- *fill*         0x08000aaa        0x2 
+                0x08000dd0        0x2 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+                0x08000dd0                null_handler
+                0x08000dd0                sv_call_handler
+                0x08000dd0                pend_sv_handler
+                0x08000dd0                debug_monitor_handler
+                0x08000dd0                sys_tick_handler
+                0x08000dd0                nmi_handler
+ *fill*         0x08000dd2        0x2 
  .text.reset_handler
-                0x08000aac       0xa0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
-                0x08000aac                reset_handler
+                0x08000dd4       0xa0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+                0x08000dd4                reset_handler
  .text.nvic_enable_irq
-                0x08000b4c       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
-                0x08000b4c                nvic_enable_irq
+                0x08000e74       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+                0x08000e74                nvic_enable_irq
  .text.flash_set_ws
-                0x08000b64       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
-                0x08000b64                flash_set_ws
+                0x08000e8c       0x18 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+                0x08000e8c                flash_set_ws
  .text.flash_dcache_enable
-                0x08000b7c       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
-                0x08000b7c                flash_dcache_enable
+                0x08000ea4       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+                0x08000ea4                flash_dcache_enable
  .text.flash_dcache_disable
-                0x08000b90       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
-                0x08000b90                flash_dcache_disable
+                0x08000eb8       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+                0x08000eb8                flash_dcache_disable
  .text.flash_icache_enable
-                0x08000ba4       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
-                0x08000ba4                flash_icache_enable
+                0x08000ecc       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+                0x08000ecc                flash_icache_enable
  .text.flash_icache_disable
-                0x08000bb8       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
-                0x08000bb8                flash_icache_disable
+                0x08000ee0       0x14 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+                0x08000ee0                flash_icache_disable
  .text.pwr_set_vos_scale
-                0x08000bcc       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
-                0x08000bcc                pwr_set_vos_scale
- .text.memset   0x08000bdc       0xa4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
-                0x08000bdc                memset
-                0x08000c80                        . = ALIGN (0x4)
+                0x08000ef4       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+                0x08000ef4                pwr_set_vos_scale
+ *fill*         0x08000f04        0x4 
+ .text.log      0x08000f08       0x84 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+                0x08000f08                log
+ *fill*         0x08000f8c        0x4 
+ .text.nan      0x08000f90       0x10 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+                0x08000f90                nan
+ .text.__ieee754_log
+                0x08000fa0      0x3b8 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+                0x08000fa0                __ieee754_log
+ .text.__errno  0x08001358        0xc /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
+                0x08001358                __errno
+ .text          0x08001364      0x378 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+                0x08001364                __aeabi_drsub
+                0x0800136c                __aeabi_dsub
+                0x0800136c                __subdf3
+                0x08001370                __adddf3
+                0x08001370                __aeabi_dadd
+                0x080015e8                __aeabi_ui2d
+                0x080015e8                __floatunsidf
+                0x08001608                __floatsidf
+                0x08001608                __aeabi_i2d
+                0x0800162c                __extendsfdf2
+                0x0800162c                __aeabi_f2d
+                0x08001670                __aeabi_ul2d
+                0x08001670                __floatundidf
+                0x08001680                __floatdidf
+                0x08001680                __aeabi_l2d
+ .text          0x080016dc      0x424 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+                0x080016dc                __aeabi_dmul
+                0x080016dc                __muldf3
+                0x08001930                __aeabi_ddiv
+                0x08001930                __divdf3
+ .text          0x08001b00      0x110 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+                0x08001b00                __gtdf2
+                0x08001b00                __gedf2
+                0x08001b08                __ltdf2
+                0x08001b08                __ledf2
+                0x08001b10                __cmpdf2
+                0x08001b10                __eqdf2
+                0x08001b10                __nedf2
+                0x08001b8c                __aeabi_cdrcmple
+                0x08001b9c                __aeabi_cdcmple
+                0x08001b9c                __aeabi_cdcmpeq
+                0x08001bac                __aeabi_dcmpeq
+                0x08001bc0                __aeabi_dcmplt
+                0x08001bd4                __aeabi_dcmple
+                0x08001be8                __aeabi_dcmpge
+                0x08001bfc                __aeabi_dcmpgt
+ .text          0x08001c10       0x2c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
+                0x08001c10                __aeabi_dcmpun
+                0x08001c10                __unorddf2
+ .text          0x08001c3c       0x50 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
+                0x08001c3c                __fixdfsi
+                0x08001c3c                __aeabi_d2iz
+                0x08001c8c                        . = ALIGN (0x4)
  *(.rodata*)
  .rodata.rcc_hse_25mhz_3v3
-                0x08000c80       0x70 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
-                0x08000c80                rcc_hse_25mhz_3v3
-                0x08000cf0                        . = ALIGN (0x4)
+                0x08001c8c       0x70 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x08001c8c                rcc_hse_25mhz_3v3
+ .rodata.log.str1.4
+                0x08001cfc        0x1 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+                0x08001d00                        . = ALIGN (0x4)
+ *fill*         0x08001cfd        0x3 
 
-.glue_7         0x08000cf0        0x0
- .glue_7        0x08000cf0        0x0 linker stubs
+.glue_7         0x08001d00        0x0
+ .glue_7        0x08001d00        0x0 linker stubs
 
-.glue_7t        0x08000cf0        0x0
- .glue_7t       0x08000cf0        0x0 linker stubs
+.glue_7t        0x08001d00        0x0
+ .glue_7t       0x08001d00        0x0 linker stubs
 
-.vfp11_veneer   0x08000cf0        0x0
- .vfp11_veneer  0x08000cf0        0x0 linker stubs
+.vfp11_veneer   0x08001d00        0x0
+ .vfp11_veneer  0x08001d00        0x0 linker stubs
 
-.v4_bx          0x08000cf0        0x0
- .v4_bx         0x08000cf0        0x0 linker stubs
+.v4_bx          0x08001d00        0x0
+ .v4_bx         0x08001d00        0x0 linker stubs
 
-.iplt           0x08000cf0        0x0
- .iplt          0x08000cf0        0x0 main.o
+.iplt           0x08001d00        0x0
+ .iplt          0x08001d00        0x0 main.o
 
-.rel.dyn        0x08000cf0        0x0
- .rel.iplt      0x08000cf0        0x0 main.o
+.rel.dyn        0x08001d00        0x0
+ .rel.iplt      0x08001d00        0x0 main.o
 
-.preinit_array  0x08000cf0        0x0
-                0x08000cf0                        . = ALIGN (0x4)
-                0x08000cf0                        __preinit_array_start = .
+.preinit_array  0x08001d00        0x0
+                0x08001d00                        . = ALIGN (0x4)
+                0x08001d00                        __preinit_array_start = .
  *(.preinit_array)
-                0x08000cf0                        __preinit_array_end = .
+                0x08001d00                        __preinit_array_end = .
 
-.init_array     0x08000cf0        0x0
-                0x08000cf0                        . = ALIGN (0x4)
-                0x08000cf0                        __init_array_start = .
+.init_array     0x08001d00        0x0
+                0x08001d00                        . = ALIGN (0x4)
+                0x08001d00                        __init_array_start = .
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x08000cf0                        __init_array_end = .
+                0x08001d00                        __init_array_end = .
 
-.fini_array     0x08000cf0        0x0
-                0x08000cf0                        . = ALIGN (0x4)
-                0x08000cf0                        __fini_array_start = .
+.fini_array     0x08001d00        0x0
+                0x08001d00                        . = ALIGN (0x4)
+                0x08001d00                        __fini_array_start = .
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
-                0x08000cf0                        __fini_array_end = .
+                0x08001d00                        __fini_array_end = .
 
 .ARM.extab
  *(.ARM.extab*)
 
-.ARM.exidx      0x08000cf0        0x0
-                0x08000cf0                        __exidx_start = .
+.ARM.exidx      0x08001d00        0x0
+                0x08001d00                        __exidx_start = .
  *(.ARM.exidx*)
-                0x08000cf0                        __exidx_end = .
-                0x08000cf0                        . = ALIGN (0x4)
-                0x08000cf0                        _etext = .
+                0x08001d00                        __exidx_end = .
+                0x08001d00                        . = ALIGN (0x4)
+                0x08001d00                        _etext = .
 
 .noinit
  *(.noinit*)
-                0x08000cf0                        . = ALIGN (0x4)
+                0x08001d00                        . = ALIGN (0x4)
 
-.data           0x20000000        0xc load address 0x08000cf0
+.data           0x20000000      0x150 load address 0x08001d00
                 0x20000000                        _data = .
  *(.data*)
  .data.rcc_apb2_frequency
@@ -2184,251 +2214,236 @@ END GROUP
  .data.rcc_ahb_frequency
                 0x20000008        0x4 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
                 0x20000008                rcc_ahb_frequency
+ .data._impure_ptr
+                0x2000000c        0x4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
+                0x2000000c                _impure_ptr
+ .data._impure_data
+                0x20000010      0x140 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
+                0x20000010                _impure_data
  *(.ramtext*)
-                0x2000000c                        . = ALIGN (0x4)
-                0x2000000c                        _edata = .
-                0x08000cf0                        _data_loadaddr = LOADADDR (.data)
+                0x20000150                        . = ALIGN (0x4)
+                0x20000150                        _edata = .
+                0x08001d00                        _data_loadaddr = LOADADDR (.data)
 
-.igot.plt       0x2000000c        0x0 load address 0x08000cfc
- .igot.plt      0x2000000c        0x0 main.o
+.igot.plt       0x20000150        0x0 load address 0x08001e50
+ .igot.plt      0x20000150        0x0 main.o
 
-.bss            0x2000000c     0x19ac load address 0x08000cfc
+.bss            0x20000150     0x1da4 load address 0x08001e50
  *(.bss*)
- .bss.key_event_arr.0
-                0x2000000c     0x15e0 main.o
- .bss.piano_dev
-                0x200015ec      0x3c8 main.o
  .bss.irq_timer_cnt
-                0x200019b4        0x4 main.o
-                0x200019b4                irq_timer_cnt
+                0x20000150        0x4 main.o
+                0x20000150                irq_timer_cnt
+ .bss.piano_dev
+                0x20000154      0x3c8 main.o
+ .bss.keys_map  0x2000051c      0x2c0 main.o
+                0x2000051c                keys_map
+ .bss.key_event_arr.0
+                0x200007dc     0x15e0 main.o
+ .bss.__sf      0x20001dbc      0x138 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
+                0x20001dbc                __sf
  *(COMMON)
-                0x200019b8                        . = ALIGN (0x4)
-                0x200019b8                        _ebss = .
+                0x20001ef4                        . = ALIGN (0x4)
+                0x20001ef4                        _ebss = .
 
 /DISCARD/
  *(.eh_frame)
-                0x200019b8                        . = ALIGN (0x4)
-                0x200019b8                        end = .
+                0x20001ef4                        . = ALIGN (0x4)
+                0x20001ef4                        end = .
                 0x20010000                        PROVIDE (_stack = (ORIGIN (ram) + LENGTH (ram)))
 OUTPUT(main.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000     0x4f20
- .debug_info    0x00000000     0x1212 main.o
- .debug_info    0x00001212      0x256 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_info    0x00001468      0x21b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_info    0x00001683      0x932 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_info    0x00001fb5      0xfa1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_info    0x00002f56     0x1004 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_info    0x00003f5a      0x665 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_info    0x000045bf      0x192 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_info    0x00004751      0x2d9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_info    0x00004a2a      0x239 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_info    0x00004c63       0xf1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_info    0x00004d54       0xe9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
- .debug_info    0x00004e3d       0xe3 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+.debug_info     0x00000000     0x4a0d
+ .debug_info    0x00000000      0xcff main.o
+ .debug_info    0x00000cff      0x256 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_info    0x00000f55      0x21b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_info    0x00001170      0x932 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_info    0x00001aa2      0xfa1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_info    0x00002a43     0x1004 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_info    0x00003a47      0x665 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_info    0x000040ac      0x192 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_info    0x0000423e      0x2d9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_info    0x00004517      0x239 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_info    0x00004750       0xf1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_info    0x00004841       0xe9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+ .debug_info    0x0000492a       0xe3 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
-.debug_abbrev   0x00000000     0x10b0
- .debug_abbrev  0x00000000      0x2d7 main.o
- .debug_abbrev  0x000002d7      0x115 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_abbrev  0x000003ec       0xc2 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_abbrev  0x000004ae      0x185 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_abbrev  0x00000633      0x2da /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_abbrev  0x0000090d      0x1ac /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_abbrev  0x00000ab9      0x1a9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_abbrev  0x00000c62       0xb6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_abbrev  0x00000d18      0x15f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_abbrev  0x00000e77       0xb6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_abbrev  0x00000f2d       0x96 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_abbrev  0x00000fc3       0x56 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
- .debug_abbrev  0x00001019       0x97 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+.debug_abbrev   0x00000000     0x106e
+ .debug_abbrev  0x00000000      0x295 main.o
+ .debug_abbrev  0x00000295      0x115 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_abbrev  0x000003aa       0xc2 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_abbrev  0x0000046c      0x185 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_abbrev  0x000005f1      0x2da /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_abbrev  0x000008cb      0x1ac /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_abbrev  0x00000a77      0x1a9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_abbrev  0x00000c20       0xb6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_abbrev  0x00000cd6      0x15f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_abbrev  0x00000e35       0xb6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_abbrev  0x00000eeb       0x96 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_abbrev  0x00000f81       0x56 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+ .debug_abbrev  0x00000fd7       0x97 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
-.debug_loclists
-                0x00000000      0xfa9
- .debug_loclists
-                0x00000000      0x283 main.o
- .debug_loclists
-                0x00000283       0x96 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_loclists
-                0x00000319       0xf9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_loclists
-                0x00000412       0x87 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_loclists
-                0x00000499      0x52f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_loclists
-                0x000009c8      0x1d5 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_loclists
-                0x00000b9d      0x18e /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_loclists
-                0x00000d2b       0x79 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_loclists
-                0x00000da4       0xb6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_loclists
-                0x00000e5a      0x111 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_loclists
-                0x00000f6b       0x17 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_loclists
-                0x00000f82       0x27 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
-
-.debug_aranges  0x00000000      0x748
+.debug_aranges  0x00000000      0x750
  .debug_aranges
-                0x00000000       0x60 main.o
+                0x00000000       0x68 main.o
  .debug_aranges
-                0x00000060       0x50 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+                0x00000068       0x50 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .debug_aranges
-                0x000000b0       0x30 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+                0x000000b8       0x30 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
  .debug_aranges
-                0x000000e0       0x80 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+                0x000000e8       0x80 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
  .debug_aranges
-                0x00000160      0x110 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x00000168      0x110 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
  .debug_aranges
-                0x00000270      0x278 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x00000278      0x278 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
  .debug_aranges
-                0x000004e8       0xf0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x000004f0       0xf0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
  .debug_aranges
-                0x000005d8       0x40 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+                0x000005e0       0x40 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
  .debug_aranges
-                0x00000618       0x30 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+                0x00000620       0x30 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
  .debug_aranges
-                0x00000648       0x60 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+                0x00000650       0x60 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
  .debug_aranges
-                0x000006a8       0x38 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+                0x000006b0       0x38 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
  .debug_aranges
-                0x000006e0       0x48 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+                0x000006e8       0x48 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
  .debug_aranges
-                0x00000728       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+                0x00000730       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
 .debug_rnglists
-                0x00000000      0x5db
+                0x00000000      0x559
  .debug_rnglists
-                0x00000000       0xce main.o
+                0x00000000       0x4c main.o
  .debug_rnglists
-                0x000000ce       0x37 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+                0x0000004c       0x37 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
  .debug_rnglists
-                0x00000105       0x1f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+                0x00000083       0x1f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
  .debug_rnglists
-                0x00000124       0x5b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+                0x000000a2       0x5b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
  .debug_rnglists
-                0x0000017f       0xe0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+                0x000000fd       0xe0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
  .debug_rnglists
-                0x0000025f      0x1d6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+                0x000001dd      0x1d6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
  .debug_rnglists
-                0x00000435       0xaf /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+                0x000003b3       0xaf /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
  .debug_rnglists
-                0x000004e4       0x2b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+                0x00000462       0x2b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
  .debug_rnglists
-                0x0000050f       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+                0x0000048d       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
  .debug_rnglists
-                0x0000052f       0x43 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+                0x000004ad       0x43 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
  .debug_rnglists
-                0x00000572       0x25 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+                0x000004f0       0x25 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
  .debug_rnglists
-                0x00000597       0x31 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+                0x00000515       0x31 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
  .debug_rnglists
-                0x000005c8       0x13 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+                0x00000546       0x13 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
-.debug_macro    0x00000000     0x605c
- .debug_macro   0x00000000      0x29a main.o
- .debug_macro   0x0000029a      0xacc main.o
- .debug_macro   0x00000d66       0x1c main.o
- .debug_macro   0x00000d82       0x22 main.o
- .debug_macro   0x00000da4       0x56 main.o
- .debug_macro   0x00000dfa       0x51 main.o
- .debug_macro   0x00000e4b      0x103 main.o
- .debug_macro   0x00000f4e       0x6a main.o
- .debug_macro   0x00000fb8      0x1df main.o
- .debug_macro   0x00001197       0x22 main.o
- .debug_macro   0x000011b9       0xe8 main.o
- .debug_macro   0x000012a1       0x76 main.o
- .debug_macro   0x00001317      0x280 main.o
- .debug_macro   0x00001597       0x8e main.o
- .debug_macro   0x00001625       0x46 main.o
- .debug_macro   0x0000166b      0xcea main.o
- .debug_macro   0x00002355       0x76 main.o
- .debug_macro   0x000023cb      0x37e main.o
- .debug_macro   0x00002749       0xca main.o
- .debug_macro   0x00002813      0xf7d main.o
- .debug_macro   0x00003790       0x52 main.o
- .debug_macro   0x000037e2       0xee main.o
- .debug_macro   0x000038d0       0x28 main.o
- .debug_macro   0x000038f8       0x94 main.o
- .debug_macro   0x0000398c      0x29e main.o
- .debug_macro   0x00003c2a       0xa0 main.o
- .debug_macro   0x00003cca       0x6e main.o
- .debug_macro   0x00003d38      0x22c main.o
- .debug_macro   0x00003f64       0x6f main.o
- .debug_macro   0x00003fd3       0x2a main.o
- .debug_macro   0x00003ffd       0x7b main.o
- .debug_macro   0x00004078       0x3c main.o
- .debug_macro   0x000040b4       0x34 main.o
- .debug_macro   0x000040e8       0x16 main.o
- .debug_macro   0x000040fe      0x11c main.o
- .debug_macro   0x0000421a       0x94 main.o
- .debug_macro   0x000042ae      0x38c main.o
- .debug_macro   0x0000463a       0x16 main.o
- .debug_macro   0x00004650       0x4a main.o
- .debug_macro   0x0000469a       0x34 main.o
- .debug_macro   0x000046ce       0x10 main.o
- .debug_macro   0x000046de       0x58 main.o
- .debug_macro   0x00004736      0x1e5 main.o
- .debug_macro   0x0000491b       0x22 main.o
- .debug_macro   0x0000493d       0x1c main.o
- .debug_macro   0x00004959       0x3c main.o
- .debug_macro   0x00004995       0x10 main.o
- .debug_macro   0x000049a5       0x16 main.o
- .debug_macro   0x000049bb       0x16 main.o
- .debug_macro   0x000049d1      0x12a main.o
- .debug_macro   0x00004afb       0x22 main.o
- .debug_macro   0x00004b1d       0xd1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_macro   0x00004bee       0xd1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_macro   0x00004cbf       0xf0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_macro   0x00004daf      0x124 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_macro   0x00004ed3       0x16 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_macro   0x00004ee9       0x1c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_macro   0x00004f05      0x143 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_macro   0x00005048       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_macro   0x00005058       0xf0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_macro   0x00005148      0x10b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_macro   0x00005253      0x10b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_macro   0x0000535e       0xd3 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_macro   0x00005431      0x452 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_macro   0x00005883       0xb3 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_macro   0x00005936       0x68 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_macro   0x0000599e      0x458 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_macro   0x00005df6       0xd7 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_macro   0x00005ecd       0xd7 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
- .debug_macro   0x00005fa4       0xb8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+.debug_macro    0x00000000     0x6c21
+ .debug_macro   0x00000000      0x2ad main.o
+ .debug_macro   0x000002ad      0xac6 main.o
+ .debug_macro   0x00000d73       0x1c main.o
+ .debug_macro   0x00000d8f       0x22 main.o
+ .debug_macro   0x00000db1       0x56 main.o
+ .debug_macro   0x00000e07       0x51 main.o
+ .debug_macro   0x00000e58      0x103 main.o
+ .debug_macro   0x00000f5b       0x6a main.o
+ .debug_macro   0x00000fc5      0x1df main.o
+ .debug_macro   0x000011a4       0x22 main.o
+ .debug_macro   0x000011c6       0xe8 main.o
+ .debug_macro   0x000012ae       0x76 main.o
+ .debug_macro   0x00001324      0x280 main.o
+ .debug_macro   0x000015a4       0x8e main.o
+ .debug_macro   0x00001632       0x46 main.o
+ .debug_macro   0x00001678      0xcea main.o
+ .debug_macro   0x00002362       0x76 main.o
+ .debug_macro   0x000023d8      0x37e main.o
+ .debug_macro   0x00002756       0xca main.o
+ .debug_macro   0x00002820      0xf7d main.o
+ .debug_macro   0x0000379d       0x52 main.o
+ .debug_macro   0x000037ef       0xee main.o
+ .debug_macro   0x000038dd       0x28 main.o
+ .debug_macro   0x00003905       0x94 main.o
+ .debug_macro   0x00003999      0x29e main.o
+ .debug_macro   0x00003c37       0xa0 main.o
+ .debug_macro   0x00003cd7       0x6e main.o
+ .debug_macro   0x00003d45      0x22c main.o
+ .debug_macro   0x00003f71       0x6f main.o
+ .debug_macro   0x00003fe0       0x2a main.o
+ .debug_macro   0x0000400a       0x7b main.o
+ .debug_macro   0x00004085       0x3c main.o
+ .debug_macro   0x000040c1       0x34 main.o
+ .debug_macro   0x000040f5       0x16 main.o
+ .debug_macro   0x0000410b      0x11c main.o
+ .debug_macro   0x00004227       0x94 main.o
+ .debug_macro   0x000042bb      0x38c main.o
+ .debug_macro   0x00004647       0x16 main.o
+ .debug_macro   0x0000465d       0x4a main.o
+ .debug_macro   0x000046a7       0x34 main.o
+ .debug_macro   0x000046db       0x10 main.o
+ .debug_macro   0x000046eb       0x58 main.o
+ .debug_macro   0x00004743      0x1e5 main.o
+ .debug_macro   0x00004928       0x22 main.o
+ .debug_macro   0x0000494a       0x1c main.o
+ .debug_macro   0x00004966       0x3c main.o
+ .debug_macro   0x000049a2       0x10 main.o
+ .debug_macro   0x000049b2       0x16 main.o
+ .debug_macro   0x000049c8       0x16 main.o
+ .debug_macro   0x000049de      0x12a main.o
+ .debug_macro   0x00004b08       0x22 main.o
+ .debug_macro   0x00004b2a       0xec main.o
+ .debug_macro   0x00004c16       0xd1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_macro   0x00004ce7      0xacc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_macro   0x000057b3       0xd1 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_macro   0x00005884       0xf0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_macro   0x00005974      0x124 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_macro   0x00005a98       0x16 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_macro   0x00005aae       0x1c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_macro   0x00005aca      0x143 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_macro   0x00005c0d       0x10 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_macro   0x00005c1d       0xf0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_macro   0x00005d0d      0x10b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_macro   0x00005e18      0x10b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_macro   0x00005f23       0xd3 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_macro   0x00005ff6      0x452 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_macro   0x00006448       0xb3 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_macro   0x000064fb       0x68 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_macro   0x00006563      0x458 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_macro   0x000069bb       0xd7 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_macro   0x00006a92       0xd7 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+ .debug_macro   0x00006b69       0xb8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
-.debug_line     0x00000000     0x4ce3
- .debug_line    0x00000000      0xa85 main.o
- .debug_line    0x00000a85      0x3a8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_line    0x00000e2d      0x483 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_line    0x000012b0      0x446 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_line    0x000016f6      0xaaf /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_line    0x000021a5     0x1092 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_line    0x00003237      0x682 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_line    0x000038b9      0x39f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_line    0x00003c58      0x3dc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_line    0x00004034      0x381 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_line    0x000043b5      0x348 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_line    0x000046fd      0x361 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
- .debug_line    0x00004a5e      0x285 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+.debug_line     0x00000000     0x4bf4
+ .debug_line    0x00000000      0x996 main.o
+ .debug_line    0x00000996      0x3a8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_line    0x00000d3e      0x483 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_line    0x000011c1      0x446 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_line    0x00001607      0xaaf /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_line    0x000020b6     0x1092 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_line    0x00003148      0x682 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_line    0x000037ca      0x39f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_line    0x00003b69      0x3dc /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_line    0x00003f45      0x381 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_line    0x000042c6      0x348 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_line    0x0000460e      0x361 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+ .debug_line    0x0000496f      0x285 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
-.debug_str      0x00000000    0x18839
- .debug_str     0x00000000    0x18839 main.o
-                              0x14765 (size before relaxing)
- .debug_str     0x00018839     0x66fa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_str     0x00018839     0x671c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_str     0x00018839     0x9ab9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_str     0x00018839     0xa32e /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_str     0x00018839     0xdd5d /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_str     0x00018839     0xa57b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_str     0x00018839     0xa2e7 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_str     0x00018839     0x6faf /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_str     0x00018839     0x622f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_str     0x00018839     0x5a51 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_str     0x00018839     0x5a73 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
- .debug_str     0x00018839     0x56cd /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+.debug_str      0x00000000    0x18d7e
+ .debug_str     0x00000000    0x18d7e main.o
+                              0x14c8d (size before relaxing)
+ .debug_str     0x00018d7e     0x66fa /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_str     0x00018d7e     0x671c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_str     0x00018d7e     0x9ab9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_str     0x00018d7e     0xa32e /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_str     0x00018d7e     0xdd5d /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_str     0x00018d7e     0xa57b /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_str     0x00018d7e     0xa2e7 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_str     0x00018d7e     0x6faf /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_str     0x00018d7e     0x622f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_str     0x00018d7e     0x5a51 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_str     0x00018d7e     0x5a73 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+ .debug_str     0x00018d7e     0x56cd /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 main.o
@@ -2475,23 +2490,90 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000270       0x34 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
  .ARM.attributes
-                0x000002a4       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+                0x000002a4       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+ .ARM.attributes
+                0x000002d8       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+ .ARM.attributes
+                0x0000030c       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+ .ARM.attributes
+                0x00000340       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
+ .ARM.attributes
+                0x00000374       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-impure.o)
+ .ARM.attributes
+                0x000003a8       0x34 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
+ .ARM.attributes
+                0x000003dc       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x000003fe       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x00000420       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x00000442       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
+ .ARM.attributes
+                0x00000464       0x22 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
 
-.debug_frame    0x00000000      0xe60
- .debug_frame   0x00000000      0x140 main.o
- .debug_frame   0x00000140       0x80 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
- .debug_frame   0x000001c0       0x70 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
- .debug_frame   0x00000230       0xe0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
- .debug_frame   0x00000310      0x234 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
- .debug_frame   0x00000544      0x4d8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
- .debug_frame   0x00000a1c      0x1ec /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
- .debug_frame   0x00000c08       0x60 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
- .debug_frame   0x00000c68       0x4c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
- .debug_frame   0x00000cb4       0xa0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
- .debug_frame   0x00000d54       0x50 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
- .debug_frame   0x00000da4       0x70 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
- .debug_frame   0x00000e14       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
- .debug_frame   0x00000e34       0x2c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-memset.o)
+.debug_frame    0x00000000     0x1270
+ .debug_frame   0x00000000      0x15c main.o
+ .debug_frame   0x0000015c       0x80 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_frame   0x000001dc       0x70 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_frame   0x0000024c       0xe0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_frame   0x0000032c      0x234 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_frame   0x00000560      0x4d8 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_frame   0x00000a38      0x1ec /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_frame   0x00000c24       0x60 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_frame   0x00000c84       0x4c /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_frame   0x00000cd0       0xa0 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_frame   0x00000d70       0x50 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_frame   0x00000dc0       0x70 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_idcache.o)
+ .debug_frame   0x00000e30       0x20 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+ .debug_frame   0x00000e50       0x4c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+ .debug_frame   0x00000e9c       0x20 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+ .debug_frame   0x00000ebc       0x54 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+ .debug_frame   0x00000f10       0x20 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
+ .debug_frame   0x00000f30      0x13c /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
+ .debug_frame   0x0000106c       0xac /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00001118       0x50 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00001168       0xc4 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x0000122c       0x20 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
+ .debug_frame   0x0000124c       0x24 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
+
+.debug_loclists
+                0x00000000      0xd26
+ .debug_loclists
+                0x00000000       0x96 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_all.o)
+ .debug_loclists
+                0x00000096       0xf9 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(gpio_common_f0234.o)
+ .debug_loclists
+                0x0000018f       0x87 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc_common_all.o)
+ .debug_loclists
+                0x00000216      0x52f /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(rcc.o)
+ .debug_loclists
+                0x00000745      0x1d5 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(timer_common_all.o)
+ .debug_loclists
+                0x0000091a      0x18e /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_all.o)
+ .debug_loclists
+                0x00000aa8       0x79 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(usart_common_f124.o)
+ .debug_loclists
+                0x00000b21       0xb6 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
+ .debug_loclists
+                0x00000bd7      0x111 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)
+ .debug_loclists
+                0x00000ce8       0x17 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(flash_common_all.o)
+ .debug_loclists
+                0x00000cff       0x27 /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(pwr.o)
+
+.debug_line_str
+                0x00000000       0xc7
+ .debug_line_str
+                0x00000000       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+ .debug_line_str
+                0x000000c7       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+ .debug_line_str
+                0x000000c7       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+ .debug_line_str
+                0x000000c7       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
+ .debug_line_str
+                0x000000c7       0xc7 /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
 
 Cross Reference Table
 
@@ -2509,15 +2591,20 @@ __aeabi_cdrcmple                                  /opt/gcc-arm-none-eabi/bin/../
 __aeabi_d2iz                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  main.o
 __aeabi_dadd                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
 __aeabi_dcmpeq                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
 __aeabi_dcmpge                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
 __aeabi_dcmpgt                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
 __aeabi_dcmple                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
@@ -2526,26 +2613,33 @@ __aeabi_dcmplt                                    /opt/gcc-arm-none-eabi/bin/../
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
 __aeabi_dcmpun                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
 __aeabi_ddiv                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+                                                  main.o
 __aeabi_dmul                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libm_a-s_frexp.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
 __aeabi_drsub                                     /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
 __aeabi_dsub                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
 __aeabi_f2d                                       /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
 __aeabi_i2d                                       /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
 __aeabi_l2d                                       /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
 __aeabi_ui2d                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
+                                                  main.o
 __aeabi_ul2d                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
 __any_on                                          /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
 __ascii_mbtowc                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mbtowc_r.o)
@@ -2572,6 +2666,7 @@ __errno                                           /opt/gcc-arm-none-eabi/bin/../
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-callocr.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-strtol.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sysconf.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
 __eucjp_mbtowc                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mbtowc_r.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-locale.o)
 __eucjp_wctomb                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wctomb_r.o)
@@ -2601,6 +2696,8 @@ __hi0bits                                         /opt/gcc-arm-none-eabi/bin/../
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
 __i2b                                             /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mprec.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-dtoa.o)
+__ieee754_log                                     /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-e_log.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
 __init_array_end                                  /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 __init_array_start                                /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 __jis_mbtowc                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-mbtowc_r.o)
@@ -2811,7 +2908,6 @@ _impure_ptr                                       /opt/gcc-arm-none-eabi/bin/../
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-vfiprintf.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-fiprintf.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wcsnrtombs.o)
-                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-assert.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-fflush.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-fclose.o)
@@ -2820,6 +2916,7 @@ _impure_ptr                                       /opt/gcc-arm-none-eabi/bin/../
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-locale.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wcsrtombs.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-wcrtomb.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-errno.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-sprintf.o)
 _init_signal                                      /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-signal.o)
 _init_signal_r                                    /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-signal.o)
@@ -2997,9 +3094,12 @@ i2c2_ev_isr                                       /home/innok/piano_stm32/libope
 i2c3_er_isr                                       /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 i2c3_ev_isr                                       /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 irq_timer_cnt                                     main.o
+keys_map                                          main.o
 lcd_tft_err_isr                                   /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 lcd_tft_isr                                       /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 localeconv                                        /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-localeconv.o)
+log                                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
+                                                  main.o
 main                                              main.o
                                                   /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 mem_manage_handler                                /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
@@ -3021,7 +3121,8 @@ memset                                            /opt/gcc-arm-none-eabi/bin/../
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-callocr.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-svfprintf.o)
                                                   /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(libc_a-findfp.o)
-                                                  main.o
+nan                                               /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-s_nan.o)
+                                                  /opt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-w_log.o)
 nmi_handler                                       /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 null_handler                                      /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(vector.o)
 nvic_clear_pending_irq                            /home/innok/piano_stm32/libopencm3/lib/libopencm3_stm32f4.a(nvic.o)

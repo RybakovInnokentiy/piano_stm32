@@ -54,4 +54,5 @@ main.o: main.c \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/machine/stdlib.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/stdio.h \
  /opt/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
- /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/stdio.h main.h
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/stdio.h main.h \
+ /opt/gcc-arm-none-eabi/arm-none-eabi/include/math.h

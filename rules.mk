@@ -42,7 +42,7 @@ STFLASH		= $(shell which st-flash)
 STYLECHECK	:= /checkpatch.pl
 STYLECHECKFLAGS	:= --no-tree -f --terse --mailback
 STYLECHECKFILES	:= $(shell find . -name '*.[ch]')
-OPT		:= -Os
+OPT		:= -O0
 DEBUG		:= -ggdb3
 CSTD		?= -std=c99
 
@@ -83,7 +83,7 @@ ifeq ($(strip $(DEVICE)),)
 # Old style, assume LDSCRIPT exists
 DEFS		+= -I$(OPENCM3_DIR)/include
 LDFLAGS		+= -L$(OPENCM3_DIR)/lib
-LDLIBS		+= -l$(LIBNAME)
+LDLIBS		+= -l$(LIBNAME) -lm
 LDSCRIPT	?= $(BINARY).ld
 else
 # New style, assume device is provided, and we're generating the rest.
