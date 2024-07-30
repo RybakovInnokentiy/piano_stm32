@@ -5,10 +5,15 @@
 #define VELOCITY_CNT_MAX 127
 #define CHEK_ODD      0x55555555
 #define CHEK_EVEN      0xAAAAAAAA
+#define CHANNEL_PEDAL_LEFT   64
+#define CHANNEL_PEDAL_MIDDLE   66
+#define CHANNEL_PEDAL_RIGHT   67
 
 struct piano_board {
     unsigned int key_arr_1[8];
     unsigned int key_arr_2[8];
+    unsigned int key_pedals_1;
+    unsigned int key_pedals_2;
     unsigned int key_cycles_2[8];
     unsigned int key_cycles_1[8];
     unsigned int key_cycles_array[8][22];

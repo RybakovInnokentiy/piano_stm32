@@ -11,6 +11,8 @@
 #include <math.h>
 
 unsigned int volatile irq_timer_cnt = 0;
+unsigned int volatile pedal_antishatter_cnt = 0;
+
 static struct piano_board piano_dev;
 unsigned int keys_map[8][22];
 
@@ -41,14 +43,49 @@ void tim2_isr(void) {
     timer_disable_irq(TIM2, TIM_DIER_UIE);
     unsigned int *this_arr;
     unsigned int *prev_arr;
+    unsigned int *this_pedal;
+    unsigned int *prev_pedal;
 
     if(irq_timer_cnt % 2 == 0) {
         this_arr = &piano_dev.key_arr_1[0];
         prev_arr = &piano_dev.key_arr_2[0];
+        this_pedal = &piano_dev.key_pedals_1;
+        prev_pedal = &piano_dev.key_pedals_2;
     } else {
         this_arr = &piano_dev.key_arr_2[0];
         prev_arr = &piano_dev.key_arr_1[0];
+        this_pedal = &piano_dev.key_pedals_2;
+        prev_pedal = &piano_dev.key_pedals_1;
     }
+
+    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
+    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
+        pedal_antishatter_cnt = 0;
+        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
+        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
+        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
+//        char str_2[8];
+//        sprintf(str_2, "%03d %03d", *this_pedal, pedal_state_1);
+//        for(int b = 0; b < 8; b++){
+//            usart_send_blocking(USART2, str_2[b]);
+//        }
+//        usart_send_blocking(USART2, '\r');
+//        usart_send_blocking(USART2, '\n');
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
+        usart_send_blocking(USART2, pedal_state_1);
+
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
+        usart_send_blocking(USART2, pedal_state_2);
+
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
+        usart_send_blocking(USART2, pedal_state_3);
+
+    }
+
+    pedal_antishatter_cnt++;
 
     for(int i = 0; i < 8; i++){
         /*Write value to 74HC input*/
@@ -56,14 +93,6 @@ void tim2_isr(void) {
         GPIOB_ODR |= (i << 3);
         piano_dev.key_cnt_array[i]++;
         if(piano_dev.key_cnt_array[i] > 200) {
-//            this_arr[i] = ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & GPIO12) >> 11) | ((GPIOC_IDR & GPIO11) >> 9) |
-//                          ((GPIOC_IDR & GPIO10) >> 7) | ((GPIOA_IDR & GPIO15) >> 11) | ((GPIOA_IDR & GPIO12) >> 7) |
-//                          ((GPIOA_IDR & GPIO11) >> 5) | ((GPIOA_IDR & GPIO10) >> 3) | ((GPIOA_IDR & GPIO9) >> 1) |
-//                          ((GPIOA_IDR & GPIO8) << 1) | ((GPIOC_IDR & GPIO9) << 1) | ((GPIOC_IDR & GPIO8) << 3) |
-//                          ((GPIOC_IDR & GPIO7) << 5) | ((GPIOC_IDR & GPIO6) << 7) | ((GPIOB_IDR & GPIO15) >> 1) |
-//                          ((GPIOB_IDR & GPIO14) << 1) | ((GPIOB_IDR & GPIO13) << 3) | ((GPIOB_IDR & GPIO12) << 5) |
-//                          ((GPIOB_IDR & GPIO10) << 8) | ((GPIOB_IDR & GPIO2) << 17) | ((GPIOB_IDR & GPIO1) << 19) |
-//                          ((GPIOB_IDR & GPIO0) << 21);
             this_arr[i] = ((GPIOD_IDR & GPIO2) >> 2) | ((GPIOC_IDR & GPIO12) >> 11) | ((GPIOC_IDR & GPIO11) >> 9) |
                           ((GPIOC_IDR & GPIO10) >> 7) | ((GPIOA_IDR & GPIO15) >> 11) | ((GPIOA_IDR & GPIO12) >> 7) |
                           ((GPIOA_IDR & GPIO11) >> 5) | ((GPIOA_IDR & GPIO10) >> 3) | ((GPIOA_IDR & GPIO9) >> 1) |
@@ -147,6 +176,10 @@ void gpio_setup(void) {
                     GPIO12 | GPIO11 | GPIO10 | GPIO9 | GPIO8 | GPIO6 | GPIO7);
     gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, GPIO15 | GPIO12 | GPIO11 | GPIO10 | GPIO9 | GPIO8);
 
+    /* Pedals */
+    gpio_mode_setup(GPIOC, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, GPIO3);
+    gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, GPIO0 | GPIO1);
+
     /*GPIO for leds*/
     gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO7);
 
@@ -204,6 +237,9 @@ void piano_device_init(void) {
         }
     }
 
+    piano_dev.key_pedals_1 = 0;
+    piano_dev.key_pedals_2 = 0;
+
     static struct key_event key_event_arr[200] = {{0, 0,0, 0,0,0,NULL}};
     for(int i = 0; i < 199; i++){
         key_event_arr[i].key_event_next = &key_event_arr[i+1];
@@ -256,7 +292,6 @@ int main(void) {
     timer_setup();
 
     while (1) {
-
 //        uart_debug_int(irq_timer_cnt);
 //        process_request();
     }
