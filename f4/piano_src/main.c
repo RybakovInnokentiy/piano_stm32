@@ -3,6 +3,7 @@
 #include <libopencm3/stm32/timer.h>
 #include <libopencm3/stm32/exti.h>
 #include <libopencm3/stm32/usart.h>
+#include <libopencm3/stm32/i2c.h>
 #include <libopencm3/cm3/nvic.h>
 #include <libopencm3/cm3/systick.h>
 #include <stdlib.h>
@@ -64,13 +65,6 @@ void tim2_isr(void) {
         unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
         unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
         unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
-//        char str_2[8];
-//        sprintf(str_2, "%03d %03d", *this_pedal, pedal_state_1);
-//        for(int b = 0; b < 8; b++){
-//            usart_send_blocking(USART2, str_2[b]);
-//        }
-//        usart_send_blocking(USART2, '\r');
-//        usart_send_blocking(USART2, '\n');
         usart_send_blocking(USART2, 0xB0);
         usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
         usart_send_blocking(USART2, pedal_state_1);
@@ -160,6 +154,8 @@ static void clock_setup(void) {
     rcc_periph_clock_enable(RCC_GPIOD);
     rcc_periph_clock_enable(RCC_TIM2);
     rcc_periph_clock_enable(RCC_USART2);
+    rcc_periph_clock_enable(RCC_I2C1);
+    rcc_periph_reset_pulse(RST_I2C1);
 
 }
 
@@ -204,6 +200,17 @@ void usart_setup(void) {
     usart_set_flow_control(USART2, USART_FLOWCONTROL_NONE);
     usart_enable(USART2);
 }
+
+void i2c_mpr121_setup(){
+    gpio_mode_setup(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO6 | GPIO7);
+    gpio_set_af(GPIOB, GPIO_AF4, GPIO6 | GPIO7);
+    i2c_peripheral_disable(I2C1);
+    i2c_set_speed(I2C1, i2c_speed_sm_100k, 8);
+//    i2c_set_speed(I2C1, i2c_speed_fm_400k, 20);
+    i2c_set_own_7bit_slave_address(I2C1, 0x5B);
+    i2c_peripheral_enable(I2C1);
+}
+
 
 void piano_device_init(void) {
     for (int i = 0; i < 8; i++) {
@@ -287,11 +294,21 @@ int main(void) {
     clock_setup();
     gpio_setup();
     usart_setup();
+    i2c_mpr121_setup();
     piano_device_init();
     gpio_clear(GPIOA, GPIO7);
     timer_setup();
+    i2c_send_start(I2C1);
+    i2c_send_data(I2C1, 0x5A);
+    i2c_send_data(I2C1, 0xBB);
+    i2c_send_data(I2C1, 0xCC);
 
     while (1) {
+
+        i2c_send_data(I2C1, 0xAA);
+        i2c_send_data(I2C1, 0xBB);
+        i2c_send_data(I2C1, 0xCC);
+
 //        uart_debug_int(irq_timer_cnt);
 //        process_request();
     }

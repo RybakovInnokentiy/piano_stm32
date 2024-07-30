@@ -35,6 +35,10 @@ main.o: main.c \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/common/usart_common_f24.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/common/usart_common_f124.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/common/usart_common_all.h \
+ /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/i2c.h \
+ /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/f4/i2c.h \
+ /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/common/i2c_common_v1.h \
+ /opt/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/cm3/nvic.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/dispatch/nvic.h \
  /home/innok/piano_stm32/libopencm3/include/libopencm3/stm32/f4/nvic.h \
@@ -44,7 +48,6 @@ main.o: main.c \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/_ansi.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/newlib.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/config.h \
- /opt/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/reent.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/_ansi.h \
  /opt/gcc-arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
