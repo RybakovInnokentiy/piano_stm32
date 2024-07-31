@@ -154,8 +154,8 @@ static void clock_setup(void) {
     rcc_periph_clock_enable(RCC_GPIOD);
     rcc_periph_clock_enable(RCC_TIM2);
     rcc_periph_clock_enable(RCC_USART2);
-    rcc_periph_clock_enable(RCC_I2C1);
-    rcc_periph_reset_pulse(RST_I2C1);
+//    rcc_periph_clock_enable(RCC_I2C1);
+//    rcc_periph_reset_pulse(RST_I2C1);
 
 }
 
@@ -190,7 +190,7 @@ void timer_setup(void) {
 }
 
 void usart_setup(void) {
-    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO2 | GPIO3);
+    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_PULLUP, GPIO2 | GPIO3);
     gpio_set_af(GPIOA, GPIO_AF7, GPIO2 | GPIO3);
     usart_set_baudrate(USART2, 115200);
     usart_set_databits(USART2, 8);
@@ -203,11 +203,14 @@ void usart_setup(void) {
 
 void i2c_mpr121_setup(){
     gpio_mode_setup(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO6 | GPIO7);
+    gpio_set_output_options(GPIOB, GPIO_OTYPE_OD, GPIO_OSPEED_25MHZ, GPIO6 | GPIO7);
     gpio_set_af(GPIOB, GPIO_AF4, GPIO6 | GPIO7);
+    rcc_periph_clock_enable(RCC_I2C1);
+
     i2c_peripheral_disable(I2C1);
-    i2c_set_speed(I2C1, i2c_speed_sm_100k, 8);
-//    i2c_set_speed(I2C1, i2c_speed_fm_400k, 20);
-    i2c_set_own_7bit_slave_address(I2C1, 0x5B);
+    i2c_set_speed(I2C1, i2c_speed_unknown, 30);
+    i2c_set_own_7bit_slave_address(I2C1, 0x6c);
+    i2c_set_standard_mode(I2C1);
     i2c_peripheral_enable(I2C1);
 }
 
@@ -298,18 +301,18 @@ int main(void) {
     piano_device_init();
     gpio_clear(GPIOA, GPIO7);
     timer_setup();
-    i2c_send_start(I2C1);
-    i2c_send_data(I2C1, 0x5A);
-    i2c_send_data(I2C1, 0xBB);
-    i2c_send_data(I2C1, 0xCC);
+    uint8_t write_buf = 0x5D;
+    uint8_t read_buf = 0;
 
+    /* We will read 0x5C register */
+    i2c_transfer7(I2C1, 0x5A, &write_buf, 1, &read_buf, 1);
+
+    gpio_set(GPIOA, GPIO7);
+    char str_2[4];
+    sprintf(str_2, "%02x", read_buf);
     while (1) {
-
-        i2c_send_data(I2C1, 0xAA);
-        i2c_send_data(I2C1, 0xBB);
-        i2c_send_data(I2C1, 0xCC);
-
-//        uart_debug_int(irq_timer_cnt);
+        uart_debug(str_2, 4);
+        for(int i = 0; i < 1000000; i++);
 //        process_request();
     }
 }
