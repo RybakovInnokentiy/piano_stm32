@@ -14,6 +14,7 @@
 
 unsigned int volatile irq_timer_cnt = 0;
 unsigned int volatile pedal_antishatter_cnt = 0;
+uint16_t sensors = 0;
 
 static struct piano_board piano_dev;
 unsigned int keys_map[8][22];
@@ -77,7 +78,6 @@ void tim2_isr(void) {
         usart_send_blocking(USART2, 0xB0);
         usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
         usart_send_blocking(USART2, pedal_state_3);
-
     }
 
     pedal_antishatter_cnt++;
@@ -308,31 +308,20 @@ void mpr121_init(){
 
     mpr121_write_reg(SRST, 0x63);
 
-    mpr121_write_reg(MHDR, 0x28);  //0x01
-    mpr121_write_reg(NHDR, 0x28);  //0x01
-    mpr121_write_reg(NCLR, 0xC0);  //0x10
-    mpr121_write_reg(FDLR, 0xC0);  //0x20
-    mpr121_write_reg(MHDF, 0x28);  //0x01
-    mpr121_write_reg(NHDF, 0x28);  //0x01
-    mpr121_write_reg(NCLF, 0xC0);  //0x10
-    mpr121_write_reg(FDLF, 0xC0);  //0x20
-    mpr121_write_reg(NHDT, 0x28);  //0x01
-    mpr121_write_reg(NCLT, 0xC0);  //0x10
+    mpr121_write_reg(MHDR, 0x28);  //0x28
+    mpr121_write_reg(NHDR, 0x28);  //0x28
+    mpr121_write_reg(NCLR, 0xC0);  //0xC0
+    mpr121_write_reg(FDLR, 0xC0);  //0xC0
+    mpr121_write_reg(MHDF, 0x28);  //0x28
+    mpr121_write_reg(NHDF, 0x28);  //0x28
+    mpr121_write_reg(NCLF, 0xC0);  //0xC0
+    mpr121_write_reg(FDLF, 0xC0);  //0xC0
+    mpr121_write_reg(NHDT, 0x28);  //0x28
+    mpr121_write_reg(NCLT, 0xC0);  //0xC0
     mpr121_write_reg(FDLT, 0xFF);  //0xFF
-//    mpr121_write_reg(MHDPROXR, 0x0F); //0x0F
-//    mpr121_write_reg(NHDPROXR, 0x0F); //0x0F
-//    mpr121_write_reg(NCLPROXR, 0x00); //0x00
-//    mpr121_write_reg(FDLPROXR, 0x00); //0x00
-//    mpr121_write_reg(MHDPROXF, 0x01); //0x01
-//    mpr121_write_reg(NHDPROXF, 0x01); //0x01
-//    mpr121_write_reg(NCLPROXF, 0xFF); //0xFF
-//    mpr121_write_reg(FDLPROXF, 0xFF); //0xFF
-//    mpr121_write_reg(NHDPROXT, 0x00); //0x00
-//    mpr121_write_reg(NCLPROXT, 0x00); //0x00
-//    mpr121_write_reg(FDLPROXT, 0x00); //0x00
-    mpr121_write_reg(DTR, 0x55); //0x11
-    mpr121_write_reg(AFE1, 0xFF); //0xFF
-    mpr121_write_reg(AFE2, 0xFF); //0x30
+    mpr121_write_reg(DTR, 0x11); //0x11 0x55 better
+    mpr121_write_reg(AFE1, 0xC4); //0xC4
+    mpr121_write_reg(AFE2, 0xC8); //0xC8
     mpr121_write_reg(ACCR0, 0x00); //0x00
     mpr121_write_reg(ACCR1, 0x00); //0x00
     mpr121_write_reg(USL, 0x00); //0x00
@@ -385,12 +374,11 @@ int main(void) {
 
     gpio_set(GPIOA, GPIO7);
     char str_2[5];
-    uint16_t sensors = 0;
 
     while (1) {
-        sensors = mpr121_get_touch();
-        sprintf(str_2, "%04x", sensors);
-        uart_debug(str_2, 5);
-        for(int i = 0; i < 10000000; i++);
+//        sensors = mpr121_get_touch();
+//        sprintf(str_2, "%04x", sensors);
+//        uart_debug(str_2, 5);
+        for(int i = 0; i < 1000000; i++);
     }
 }
