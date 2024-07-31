@@ -8,6 +8,8 @@
 #define CHANNEL_PEDAL_LEFT   64
 #define CHANNEL_PEDAL_MIDDLE   66
 #define CHANNEL_PEDAL_RIGHT   67
+#define MPR121_ADDR           0x5B
+#define NUM_OF_ELECTRODES     12
 
 struct piano_board {
     unsigned int key_arr_1[8];

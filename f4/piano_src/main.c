@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
+#include "mpr121.h"
 #include <math.h>
 
 unsigned int volatile irq_timer_cnt = 0;
@@ -292,27 +293,104 @@ void process_request(void) {
     }
 
 }
+void mpr121_write_reg(uint8_t reg, uint8_t value){
+    uint8_t write_buf[2] = {reg, value};
+    i2c_transfer7(I2C1, MPR121_ADDR, write_buf, 2, NULL, 0); // write exmaple
+}
+
+uint8_t mpr121_read_reg(uint8_t reg){
+    uint8_t read_buf;
+    i2c_transfer7(I2C1, MPR121_ADDR, &reg, 1, &read_buf, 1); //read example
+    return read_buf;
+}
+
+void mpr121_init(){
+
+    mpr121_write_reg(SRST, 0x63);
+
+    mpr121_write_reg(MHDR, 0x28);  //0x01
+    mpr121_write_reg(NHDR, 0x28);  //0x01
+    mpr121_write_reg(NCLR, 0xC0);  //0x10
+    mpr121_write_reg(FDLR, 0xC0);  //0x20
+    mpr121_write_reg(MHDF, 0x28);  //0x01
+    mpr121_write_reg(NHDF, 0x28);  //0x01
+    mpr121_write_reg(NCLF, 0xC0);  //0x10
+    mpr121_write_reg(FDLF, 0xC0);  //0x20
+    mpr121_write_reg(NHDT, 0x28);  //0x01
+    mpr121_write_reg(NCLT, 0xC0);  //0x10
+    mpr121_write_reg(FDLT, 0xFF);  //0xFF
+//    mpr121_write_reg(MHDPROXR, 0x0F); //0x0F
+//    mpr121_write_reg(NHDPROXR, 0x0F); //0x0F
+//    mpr121_write_reg(NCLPROXR, 0x00); //0x00
+//    mpr121_write_reg(FDLPROXR, 0x00); //0x00
+//    mpr121_write_reg(MHDPROXF, 0x01); //0x01
+//    mpr121_write_reg(NHDPROXF, 0x01); //0x01
+//    mpr121_write_reg(NCLPROXF, 0xFF); //0xFF
+//    mpr121_write_reg(FDLPROXF, 0xFF); //0xFF
+//    mpr121_write_reg(NHDPROXT, 0x00); //0x00
+//    mpr121_write_reg(NCLPROXT, 0x00); //0x00
+//    mpr121_write_reg(FDLPROXT, 0x00); //0x00
+    mpr121_write_reg(DTR, 0x55); //0x11
+    mpr121_write_reg(AFE1, 0xFF); //0xFF
+    mpr121_write_reg(AFE2, 0xFF); //0x30
+    mpr121_write_reg(ACCR0, 0x00); //0x00
+    mpr121_write_reg(ACCR1, 0x00); //0x00
+    mpr121_write_reg(USL, 0x00); //0x00
+    mpr121_write_reg(LSL, 0x00); //0x00
+    mpr121_write_reg(TL, 0x00); //0x00
+    mpr121_write_reg(ECR, 0xCC); // default to fast baseline startup and 12 electrodes enabled, no prox
+
+    /* apply next setting for all electrodes */
+    for (int electrodes_count = 0; electrodes_count < NUM_OF_ELECTRODES; electrodes_count++) {
+        mpr121_write_reg((E0TTH + (electrodes_count<<1)), 60); // 40
+        mpr121_write_reg((E0RTH + (electrodes_count<<1)), 20); // 20
+    }
+
+    /* enable electrodes and set the current to 16uA */
+//    mpr121_write_reg(ECR, 0x10); //0x10
+}
+
+uint16_t mpr121_get_touch(void){
+    uint8_t read_buf = 0;
+    uint16_t touch_flags = 0;
+
+    read_buf = mpr121_read_reg(TS1);
+    touch_flags |= read_buf;
+
+    read_buf = mpr121_read_reg(TS2);
+    read_buf &= 0x0F;
+
+    touch_flags |= (read_buf << 8);
+
+    return touch_flags;
+}
 
 int main(void) {
     clock_setup();
     gpio_setup();
     usart_setup();
     i2c_mpr121_setup();
+    mpr121_init();
     piano_device_init();
     gpio_clear(GPIOA, GPIO7);
     timer_setup();
-    uint8_t write_buf = 0x5D;
+    uint8_t reg = 0x41;
+    uint8_t write_buf[2] = {reg, 0xAC};
     uint8_t read_buf = 0;
 
     /* We will read 0x5C register */
-    i2c_transfer7(I2C1, 0x5A, &write_buf, 1, &read_buf, 1);
+    i2c_transfer7(I2C1, MPR121_ADDR, write_buf, 2, &read_buf, 0); // write exmaple
+
+    i2c_transfer7(I2C1, MPR121_ADDR, &reg, 1, &read_buf, 1); //read example
 
     gpio_set(GPIOA, GPIO7);
-    char str_2[4];
-    sprintf(str_2, "%02x", read_buf);
+    char str_2[5];
+    uint16_t sensors = 0;
+
     while (1) {
-        uart_debug(str_2, 4);
-        for(int i = 0; i < 1000000; i++);
-//        process_request();
+        sensors = mpr121_get_touch();
+        sprintf(str_2, "%04x", sensors);
+        uart_debug(str_2, 5);
+        for(int i = 0; i < 10000000; i++);
     }
 }
