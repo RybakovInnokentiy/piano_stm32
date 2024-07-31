@@ -11,6 +11,8 @@
 #define MPR121_ADDR           0x5B
 #define NUM_OF_ELECTRODES     12
 
+#define VOLUME_STEP           4
+
 struct piano_board {
     unsigned int key_arr_1[8];
     unsigned int key_arr_2[8];

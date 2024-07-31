@@ -14,7 +14,9 @@
 
 unsigned int volatile irq_timer_cnt = 0;
 unsigned int volatile pedal_antishatter_cnt = 0;
-uint16_t sensors = 0;
+uint16_t sensors_this = 0;
+uint16_t sensors_prev = 0;
+static uint16_t sensors_time_cnt = 0;
 
 static struct piano_board piano_dev;
 unsigned int keys_map[8][22];
@@ -60,27 +62,27 @@ void tim2_isr(void) {
         this_pedal = &piano_dev.key_pedals_2;
         prev_pedal = &piano_dev.key_pedals_1;
     }
-
-    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
-    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
-        pedal_antishatter_cnt = 0;
-        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
-        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
-        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
-        usart_send_blocking(USART2, 0xB0);
-        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
-        usart_send_blocking(USART2, pedal_state_1);
-
-        usart_send_blocking(USART2, 0xB0);
-        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
-        usart_send_blocking(USART2, pedal_state_2);
-
-        usart_send_blocking(USART2, 0xB0);
-        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
-        usart_send_blocking(USART2, pedal_state_3);
-    }
-
-    pedal_antishatter_cnt++;
+//
+//    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
+//    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
+//        pedal_antishatter_cnt = 0;
+//        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
+//        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
+//        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
+//        usart_send_blocking(USART2, 0xB0);
+//        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
+//        usart_send_blocking(USART2, pedal_state_1);
+//
+//        usart_send_blocking(USART2, 0xB0);
+//        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
+//        usart_send_blocking(USART2, pedal_state_2);
+//
+//        usart_send_blocking(USART2, 0xB0);
+//        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
+//        usart_send_blocking(USART2, pedal_state_3);
+//    }
+//
+//    pedal_antishatter_cnt++;
 
     for(int i = 0; i < 8; i++){
         /*Write value to 74HC input*/
@@ -336,7 +338,6 @@ void mpr121_init(){
     }
 
     /* enable electrodes and set the current to 16uA */
-//    mpr121_write_reg(ECR, 0x10); //0x10
 }
 
 uint16_t mpr121_get_touch(void){
@@ -363,22 +364,56 @@ int main(void) {
     piano_device_init();
     gpio_clear(GPIOA, GPIO7);
     timer_setup();
-    uint8_t reg = 0x41;
-    uint8_t write_buf[2] = {reg, 0xAC};
-    uint8_t read_buf = 0;
-
-    /* We will read 0x5C register */
-    i2c_transfer7(I2C1, MPR121_ADDR, write_buf, 2, &read_buf, 0); // write exmaple
-
-    i2c_transfer7(I2C1, MPR121_ADDR, &reg, 1, &read_buf, 1); //read example
 
     gpio_set(GPIOA, GPIO7);
+
     char str_2[5];
+    uint8_t sensor_divide = 0;
+    uint8_t volume = 0;
+    sensors_prev = mpr121_get_touch();
+    uint16_t sensor_this_median = 0;
+    uint16_t sensor_prev_median = 0;
+    uint8_t sensor_bit_this_cnt = 0;
+    uint8_t sensor_bit_prev_cnt = 0;
 
     while (1) {
-//        sensors = mpr121_get_touch();
-//        sprintf(str_2, "%04x", sensors);
-//        uart_debug(str_2, 5);
-        for(int i = 0; i < 1000000; i++);
+        for(int i = 0; i < 200; i++);
+        sensors_time_cnt++;
+        if(sensors_time_cnt >= 1000) {
+            sensors_time_cnt = 0;
+            sensors_this = mpr121_get_touch();
+            if(sensors_this ^ sensors_prev){
+                sensor_this_median = 0;
+                sensor_prev_median = 0;
+                sensor_bit_this_cnt = 0;
+                sensor_bit_prev_cnt = 0;
+                for(int i = 0; i < 8; i++){
+                    if(sensors_this & (1 << i))
+                        sensor_bit_this_cnt++;
+                    if(sensors_prev & (1 << i))
+                        sensor_bit_prev_cnt++;
+                    sensor_this_median += ((sensors_this >> i) & (0x01)) * i;
+                    sensor_prev_median += ((sensors_prev >> i) & (0x01)) * i;
+                }
+                sensor_this_median = sensor_this_median * 10 / sensor_bit_this_cnt;
+                sensor_prev_median = sensor_prev_median * 10 / sensor_bit_prev_cnt;
+
+                if(sensor_this_median > sensor_prev_median) {
+                    volume += (sensor_this_median / sensor_prev_median) * VOLUME_STEP;
+                    if(volume > 127)
+                        volume = 127;
+                    sprintf(str_2, "%03d", volume);
+                    uart_debug(str_2, 4);
+                } else if (sensor_this_median < sensor_prev_median) {
+                    volume -= (sensor_prev_median / sensor_this_median) * VOLUME_STEP;
+                    if(volume > 127)
+                        volume = 0;
+                    sprintf(str_2, "%03d", volume);
+                    uart_debug(str_2, 4);
+                }
+            }
+
+            sensors_prev = sensors_this;
+        }
     }
 }
