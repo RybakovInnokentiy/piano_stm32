@@ -62,27 +62,27 @@ void tim2_isr(void) {
         this_pedal = &piano_dev.key_pedals_2;
         prev_pedal = &piano_dev.key_pedals_1;
     }
-//
-//    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
-//    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
-//        pedal_antishatter_cnt = 0;
-//        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
-//        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
-//        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
-//        usart_send_blocking(USART2, 0xB0);
-//        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
-//        usart_send_blocking(USART2, pedal_state_1);
-//
-//        usart_send_blocking(USART2, 0xB0);
-//        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
-//        usart_send_blocking(USART2, pedal_state_2);
-//
-//        usart_send_blocking(USART2, 0xB0);
-//        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
-//        usart_send_blocking(USART2, pedal_state_3);
-//    }
-//
-//    pedal_antishatter_cnt++;
+
+    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
+    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
+        pedal_antishatter_cnt = 0;
+        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
+        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
+        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
+        usart_send_blocking(USART2, pedal_state_1);
+
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
+        usart_send_blocking(USART2, pedal_state_2);
+
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
+        usart_send_blocking(USART2, pedal_state_3);
+    }
+
+    pedal_antishatter_cnt++;
 
     for(int i = 0; i < 8; i++){
         /*Write value to 74HC input*/
