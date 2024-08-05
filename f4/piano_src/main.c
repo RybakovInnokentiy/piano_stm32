@@ -106,12 +106,8 @@ void tim2_isr(void) {
                     if(arr_comparison & this_arr[i]) {
                         piano_dev.key_event_release_array[i] = 0;
                         piano_dev.key_cycles_1[i] = irq_timer_cnt;
-                        int b_j = 0;
-                        while(arr_comparison > 1){
-                            arr_comparison = arr_comparison / 2;
-                            b_j++;
-                        }
-                        piano_dev.key_buttons_array[i] = 21 + 11 * i + b_j;
+                        int map_row = log2(arr_comparison);
+                        piano_dev.key_buttons_array[i] = keys_map[i][map_row];
                     } else {
                         if (piano_dev.key_event_push_array[i] == 0) {
                             char str_2[20];
@@ -127,7 +123,7 @@ void tim2_isr(void) {
                     piano_dev.key_event_release_array[i] = 1;
                     char str_2[4];
                     unsigned int velocity = 0;
-                    unsigned int note_state = 0x80;
+                    unsigned int note_state = 0;
                     unsigned int diff = 0;
                     if (piano_dev.key_event_push_array[i] == 1) {
                         note_state = 0x90;
@@ -136,7 +132,8 @@ void tim2_isr(void) {
                     }
                     int map_row = log2(arr_comparison);
                     piano_dev.key_buttons_array[i] = keys_map[i][map_row];
-                    if(velocity > 127) velocity = 127;
+                    if(velocity > 127)
+                        velocity = 127;
                     usart_send_blocking(USART2, note_state);
                     usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
                     usart_send_blocking(USART2, velocity);
@@ -377,43 +374,43 @@ int main(void) {
     uint8_t sensor_bit_prev_cnt = 0;
 
     while (1) {
-        for(int i = 0; i < 200; i++);
-        sensors_time_cnt++;
-        if(sensors_time_cnt >= 1000) {
-            sensors_time_cnt = 0;
-            sensors_this = mpr121_get_touch();
-            if(sensors_this ^ sensors_prev){
-                sensor_this_median = 0;
-                sensor_prev_median = 0;
-                sensor_bit_this_cnt = 0;
-                sensor_bit_prev_cnt = 0;
-                for(int i = 0; i < 8; i++){
-                    if(sensors_this & (1 << i))
-                        sensor_bit_this_cnt++;
-                    if(sensors_prev & (1 << i))
-                        sensor_bit_prev_cnt++;
-                    sensor_this_median += ((sensors_this >> i) & (0x01)) * i;
-                    sensor_prev_median += ((sensors_prev >> i) & (0x01)) * i;
-                }
-                sensor_this_median = sensor_this_median * 10 / sensor_bit_this_cnt;
-                sensor_prev_median = sensor_prev_median * 10 / sensor_bit_prev_cnt;
-
-                if(sensor_this_median > sensor_prev_median) {
-                    volume += (sensor_this_median / sensor_prev_median) * VOLUME_STEP;
-                    if(volume > 127)
-                        volume = 127;
-                    sprintf(str_2, "%03d", volume);
-                    uart_debug(str_2, 4);
-                } else if (sensor_this_median < sensor_prev_median) {
-                    volume -= (sensor_prev_median / sensor_this_median) * VOLUME_STEP;
-                    if(volume > 127)
-                        volume = 0;
-                    sprintf(str_2, "%03d", volume);
-                    uart_debug(str_2, 4);
-                }
-            }
-
-            sensors_prev = sensors_this;
-        }
+//        for(int i = 0; i < 200; i++);
+//        sensors_time_cnt++;
+//        if(sensors_time_cnt >= 1000) {
+//            sensors_time_cnt = 0;
+//            sensors_this = mpr121_get_touch();
+//            if(sensors_this ^ sensors_prev){
+//                sensor_this_median = 0;
+//                sensor_prev_median = 0;
+//                sensor_bit_this_cnt = 0;
+//                sensor_bit_prev_cnt = 0;
+//                for(int i = 0; i < 8; i++){
+//                    if(sensors_this & (1 << i))
+//                        sensor_bit_this_cnt++;
+//                    if(sensors_prev & (1 << i))
+//                        sensor_bit_prev_cnt++;
+//                    sensor_this_median += ((sensors_this >> i) & (0x01)) * i;
+//                    sensor_prev_median += ((sensors_prev >> i) & (0x01)) * i;
+//                }
+//                sensor_this_median = sensor_this_median * 10 / sensor_bit_this_cnt;
+//                sensor_prev_median = sensor_prev_median * 10 / sensor_bit_prev_cnt;
+//
+//                if(sensor_this_median > sensor_prev_median) {
+//                    volume += (sensor_this_median / sensor_prev_median) * VOLUME_STEP;
+//                    if(volume > 127)
+//                        volume = 127;
+//                    sprintf(str_2, "%03d", volume);
+//                    uart_debug(str_2, 4);
+//                } else if (sensor_this_median < sensor_prev_median) {
+//                    volume -= (sensor_prev_median / sensor_this_median) * VOLUME_STEP;
+//                    if(volume > 127)
+//                        volume = 0;
+//                    sprintf(str_2, "%03d", volume);
+//                    uart_debug(str_2, 4);
+//                }
+//            }
+//
+//            sensors_prev = sensors_this;
+//        }
     }
 }
