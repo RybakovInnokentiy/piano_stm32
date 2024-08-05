@@ -63,24 +63,24 @@ void tim2_isr(void) {
         prev_pedal = &piano_dev.key_pedals_1;
     }
 
-    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
-    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
-        pedal_antishatter_cnt = 0;
-        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
-        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
-        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
-        usart_send_blocking(USART2, 0xB0);
-        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
-        usart_send_blocking(USART2, pedal_state_1);
-
-        usart_send_blocking(USART2, 0xB0);
-        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
-        usart_send_blocking(USART2, pedal_state_2);
-
-        usart_send_blocking(USART2, 0xB0);
-        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
-        usart_send_blocking(USART2, pedal_state_3);
-    }
+//    *this_pedal = (GPIOA_IDR & GPIO0) | (GPIOA_IDR & GPIO1) | ((GPIOC_IDR & GPIO3) >> 1);
+//    if((((*this_pedal) ^ (*prev_pedal)) && (pedal_antishatter_cnt > 1000)) || (pedal_antishatter_cnt > 15000)){
+//        pedal_antishatter_cnt = 0;
+//        unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
+//        unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
+//        unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
+//        usart_send_blocking(USART2, 0xB0);
+//        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
+//        usart_send_blocking(USART2, pedal_state_1);
+//
+//        usart_send_blocking(USART2, 0xB0);
+//        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
+//        usart_send_blocking(USART2, pedal_state_2);
+//
+//        usart_send_blocking(USART2, 0xB0);
+//        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
+//        usart_send_blocking(USART2, pedal_state_3);
+//    }
 
     pedal_antishatter_cnt++;
 
@@ -102,42 +102,43 @@ void tim2_isr(void) {
             unsigned int arr_comparison = this_arr[i] ^ prev_arr[i];
             if (arr_comparison) {
                 piano_dev.key_cnt_array[i] = 0;
+                int map_row = log2(arr_comparison);
                 if (arr_comparison & CHEK_ODD) {
                     if(arr_comparison & this_arr[i]) {
-                        piano_dev.key_event_release_array[i] = 0;
-                        piano_dev.key_cycles_1[i] = irq_timer_cnt;
-                        int map_row = log2(arr_comparison);
-                        piano_dev.key_buttons_array[i] = keys_map[i][map_row];
+                        piano_dev.key_event_release_array[keys_map[i][map_row]] = 0;
+                        piano_dev.key_cycles_1[keys_map[i][map_row]] = irq_timer_cnt;
                     } else {
-                        if (piano_dev.key_event_push_array[i] == 0) {
+                        if (piano_dev.key_event_push_array[keys_map[i][map_row]] == 0) {
                             char str_2[20];
                             unsigned int velocity = 0;
                             unsigned int note_state = 0x80;
-                            usart_send_blocking(USART2, note_state);
-                            usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
-                            usart_send_blocking(USART2, velocity);
+//                            usart_send_blocking(USART2, note_state);
+//                            usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
+//                            usart_send_blocking(USART2, velocity);
+                            sprintf(str_2, "%02x %03x %03x", note_state, keys_map[i][map_row], velocity);
+                            uart_debug(str_2, 20);
                         }
                     }
-                    piano_dev.key_event_push_array[i] = 1;
-                } else if ((arr_comparison & CHEK_EVEN) && (piano_dev.key_event_release_array[i] == 0)) {
-                    piano_dev.key_event_release_array[i] = 1;
-                    char str_2[4];
+                    piano_dev.key_event_push_array[keys_map[i][map_row]] = 1;
+                } else if ((arr_comparison & CHEK_EVEN) && (piano_dev.key_event_release_array[keys_map[i][map_row]] == 0)) {
+                    piano_dev.key_event_release_array[keys_map[i][map_row]] = 1;
+                    char str_2[20];
                     unsigned int velocity = 0;
                     unsigned int note_state = 0;
                     unsigned int diff = 0;
-                    if (piano_dev.key_event_push_array[i] == 1) {
+                    if (piano_dev.key_event_push_array[keys_map[i][map_row]] == 1) {
                         note_state = 0x90;
-                        diff = irq_timer_cnt - piano_dev.key_cycles_1[i];
+                        diff = irq_timer_cnt - piano_dev.key_cycles_1[keys_map[i][map_row]];
                         velocity = 50000 / diff;
                     }
-                    int map_row = log2(arr_comparison);
-                    piano_dev.key_buttons_array[i] = keys_map[i][map_row];
                     if(velocity > 127)
                         velocity = 127;
-                    usart_send_blocking(USART2, note_state);
-                    usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
-                    usart_send_blocking(USART2, velocity);
-                    piano_dev.key_event_push_array[i] = 0;
+//                    usart_send_blocking(USART2, note_state);
+//                    usart_send_blocking(USART2, piano_dev.key_buttons_array[i]);
+//                    usart_send_blocking(USART2, velocity);
+                    sprintf(str_2, "%02x %03x %03x", note_state, keys_map[i][map_row], velocity);
+                    uart_debug(str_2, 20);
+                    piano_dev.key_event_push_array[keys_map[i][map_row]] = 0;
                 }
             }
         }
@@ -219,16 +220,17 @@ void piano_device_init(void) {
     for (int i = 0; i < 8; i++) {
         piano_dev.key_arr_1[i] = 0;
         piano_dev.key_arr_2[i] = 0;
-        piano_dev.key_event_push_array[i] = 0;
-        piano_dev.key_event_release_array[i] = 0;
         piano_dev.key_buttons_array[i] = 0;
         piano_dev.key_cnt_array[i] = 0;
-        piano_dev.key_cycles_1[i] = 0;
-        piano_dev.key_cycles_2[i] = 0;
         for(int j = 0; j < 22; j++) {
-            piano_dev.key_cycles_array[i][j] = 0;
             keys_map[i][j] = 0;
         }
+    }
+
+    for(int i = 0; i < 88; i++){
+        piano_dev.key_event_push_array[i] = 0;
+        piano_dev.key_event_release_array[i] = 0;
+        piano_dev.key_cycles_1[i] = 0;
     }
 
     /*Fill first row*/
