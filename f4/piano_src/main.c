@@ -205,6 +205,7 @@ void i2c_mpr121_setup(){
 
     i2c_peripheral_disable(I2C1);
     i2c_set_speed(I2C1, i2c_speed_unknown, 30);
+
     i2c_set_own_7bit_slave_address(I2C1, 0x6c);
     i2c_set_standard_mode(I2C1);
     i2c_peripheral_enable(I2C1);
@@ -351,6 +352,7 @@ uint16_t mpr121_get_touch(void){
 
 uint8_t eeprom_read(uint8_t address){
     uint8_t read_word = 0;
+    for(int i = 0; i < 50000; i++);
     i2c_transfer7(I2C1, EEPROM_ADDR, &address, 1, &read_word, 1); //read example
     return read_word;
 }
@@ -371,10 +373,10 @@ int main(void) {
     gpio_clear(GPIOA, GPIO7);
 
     char my_str[5];
-    eeprom_write(0x04, 0xBC);
+    eeprom_write(0x00, 0xCE);
     gpio_set(GPIOA, GPIO7);
-    uint8_t read_val = eeprom_read(0x04);
-    sprintf(my_str, "0x%02x", read_val);
+    uint8_t read_val = eeprom_read(0x00);
+    sprintf(my_str, "0x%x", read_val);
     uart_debug(my_str, 5);
     gpio_clear(GPIOA, GPIO7);
 
