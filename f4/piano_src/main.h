@@ -18,9 +18,9 @@ struct piano_board {
     unsigned int key_arr_2[8];
     unsigned int key_pedals_1;
     unsigned int key_pedals_2;
-    unsigned int key_cycles_1[88];
-    unsigned int key_event_push_array[88];
-    unsigned int key_event_release_array[88];
+    unsigned int key_cycles_1[120];
+    unsigned int key_event_push_array[120];
+    unsigned int key_event_release_array[120];
     unsigned int key_cnt_array[8];
     unsigned int key_buttons_array[8];
     struct key_event *key_event_this;
