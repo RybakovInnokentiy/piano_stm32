@@ -349,17 +349,37 @@ uint16_t mpr121_get_touch(void){
     return touch_flags;
 }
 
+uint8_t eeprom_read(uint8_t address){
+    uint8_t read_word = 0;
+    i2c_transfer7(I2C1, EEPROM_ADDR, &address, 1, &read_word, 1); //read example
+    return read_word;
+}
+
+void eeprom_write(uint8_t address, uint8_t data){
+    uint8_t write_buf[2] = {address, data};
+    i2c_transfer7(I2C1, EEPROM_ADDR, write_buf, 2, NULL, 0);
+}
+
 int main(void) {
     clock_setup();
     gpio_setup();
     usart_setup();
+
     i2c_mpr121_setup();
     mpr121_init();
     piano_device_init();
     gpio_clear(GPIOA, GPIO7);
-    timer_setup();
 
+    char my_str[5];
+    eeprom_write(0x04, 0xBC);
     gpio_set(GPIOA, GPIO7);
+    uint8_t read_val = eeprom_read(0x04);
+    sprintf(my_str, "0x%02x", read_val);
+    uart_debug(my_str, 5);
+    gpio_clear(GPIOA, GPIO7);
+
+
+    timer_setup();
 
     uint16_t sensors_this = 0;
     uint16_t sensors_prev = 0;
@@ -378,7 +398,6 @@ int main(void) {
         if(sensors_time_cnt >= 1000) {
             sensors_time_cnt = 0;
             sensors_this = mpr121_get_touch();
-            gpio_clear(GPIOA, GPIO7);
 
             if(sensors_this ^ sensors_prev){
                 sensor_this_median = 0;
