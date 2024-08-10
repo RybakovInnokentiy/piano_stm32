@@ -12,8 +12,21 @@
 #define EEPROM_ADDR           0x50 // 0xA0 >> 1
 
 #define NUM_OF_ELECTRODES     12
-
+#define VOLUME_ADDRESS        0x00
 #define VOLUME_STEP           4
+
+//for colors
+#define led_B1              200
+#define led_W1              20
+#define led_R1              0
+#define led_G1              0
+
+#define led_B2              310     //Must not exeed B1 + (PWM_LED_PERIOD - B1) / 127 !
+#define led_W2              60     //Must not exeed W1 + (PWM_LED_PERIOD - W1) / 127 !
+#define led_R2              0       //Must not exeed R1 + (PWM_LED_PERIOD - R1) / 127 !
+#define led_G2              0       //Must not exeed G1 + (PWM_LED_PERIOD - G1) / 127 !
+
+#define PWM_LED_PERIOD      15000
 
 struct piano_board {
     unsigned int key_arr_1[8];

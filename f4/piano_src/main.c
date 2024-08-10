@@ -69,17 +69,17 @@ void tim2_isr(void) {
         unsigned int pedal_state_1 = 127 - (*this_pedal & 0x01) * 127;
         unsigned int pedal_state_2 = 127 - (((*this_pedal) >> 1) & 0x01) * 127;
         unsigned int pedal_state_3 = 127 - (((*this_pedal) >> 2) & 0x01) * 127;
-//        usart_send_blocking(USART2, 0xB0);
-//        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
-//        usart_send_blocking(USART2, pedal_state_1);
-//
-//        usart_send_blocking(USART2, 0xB0);
-//        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
-//        usart_send_blocking(USART2, pedal_state_2);
-//
-//        usart_send_blocking(USART2, 0xB0);
-//        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
-//        usart_send_blocking(USART2, pedal_state_3);
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_LEFT);
+        usart_send_blocking(USART2, pedal_state_1);
+
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_MIDDLE);
+        usart_send_blocking(USART2, pedal_state_2);
+
+        usart_send_blocking(USART2, 0xB0);
+        usart_send_blocking(USART2, CHANNEL_PEDAL_RIGHT);
+        usart_send_blocking(USART2, pedal_state_3);
     }
 
     pedal_antishatter_cnt++;
@@ -151,6 +151,8 @@ static void clock_setup(void) {
     rcc_periph_clock_enable(RCC_GPIOC);
     rcc_periph_clock_enable(RCC_GPIOD);
     rcc_periph_clock_enable(RCC_TIM2);
+    rcc_periph_clock_enable(RCC_TIM1);
+    rcc_periph_clock_enable(RCC_TIM3);
     rcc_periph_clock_enable(RCC_USART2);
 
 }
@@ -172,8 +174,6 @@ void gpio_setup(void) {
     gpio_mode_setup(GPIOC, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, GPIO3);
     gpio_mode_setup(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_PULLDOWN, GPIO0 | GPIO1);
 
-    /*GPIO for leds*/
-    gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO7);
 
 }
 
@@ -315,8 +315,10 @@ void mpr121_init(){
     mpr121_write_reg(FDLF, 0xC0);  //0xC0
     mpr121_write_reg(NHDT, 0x28);  //0x28
     mpr121_write_reg(NCLT, 0xC0);  //0xC0
+
     mpr121_write_reg(FDLT, 0xFF);  //0xFF
     mpr121_write_reg(DTR, 0x11); //0x11 0x55 better
+
     mpr121_write_reg(AFE1, 0xC4); //0xC4
     mpr121_write_reg(AFE2, 0xC8); //0xC8
     mpr121_write_reg(ACCR0, 0x00); //0x00
@@ -359,49 +361,130 @@ uint8_t eeprom_read(uint8_t address){
 
 void eeprom_write(uint8_t address, uint8_t data){
     uint8_t write_buf[2] = {address, data};
+    for(int i = 0; i < 50000; i++);
     i2c_transfer7(I2C1, EEPROM_ADDR, write_buf, 2, NULL, 0);
+}
+
+void led_pwm_init(){
+    /*GPIO for leds*/
+    //Blue
+    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO7);
+    gpio_set_af(GPIOA, GPIO_AF2, GPIO7);
+    //White
+    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO6);
+    gpio_set_af(GPIOA, GPIO_AF2, GPIO6);
+    //Green
+    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO5);
+    gpio_set_af(GPIOA, GPIO_AF1, GPIO5);
+    //Read
+    gpio_mode_setup(GPIOD, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO13);
+    gpio_set_af(GPIOD, GPIO_AF2, GPIO13);
+
+// Blue
+    timer_set_prescaler(TIM3, rcc_apb1_frequency / 1000000);
+    timer_set_period(TIM3, PWM_LED_PERIOD);
+    timer_set_mode(TIM3, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
+    timer_enable_oc_output(TIM3, TIM_OC2);
+    timer_set_oc_mode(TIM3, TIM_OC2,TIM_OCM_PWM1);
+    timer_continuous_mode(TIM3);
+    timer_set_oc_value(TIM3, TIM_OC2, 1);
+
+// White
+    timer_set_mode(TIM3, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
+    timer_enable_oc_output(TIM3, TIM_OC1);
+    timer_set_oc_mode(TIM3, TIM_OC1,TIM_OCM_PWM1);
+    timer_continuous_mode(TIM3);
+    timer_set_oc_value(TIM3, TIM_OC1, 1);
+
+//Green
+    timer_set_mode(TIM2, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
+    timer_enable_oc_output(TIM2, TIM_OC1);
+    timer_set_oc_mode(TIM2, TIM_OC1,TIM_OCM_PWM1);
+    timer_continuous_mode(TIM2);
+    timer_set_oc_value(TIM2, TIM_OC1, 1);
+//Red
+    timer_set_mode(TIM4, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
+    timer_enable_oc_output(TIM4, TIM_OC2);
+    timer_set_oc_mode(TIM4, TIM_OC2,TIM_OCM_PWM1);
+    timer_continuous_mode(TIM4);
+    timer_set_oc_value(TIM4, TIM_OC2, 1);
+
+    timer_enable_counter(TIM3);
+    timer_enable_counter(TIM4);
+
 }
 
 int main(void) {
     clock_setup();
     gpio_setup();
     usart_setup();
-
+    for(int i = 0; i < 5000000; i++);
     i2c_mpr121_setup();
+    for(int i = 0; i < 5000000; i++);
     mpr121_init();
     piano_device_init();
-    gpio_clear(GPIOA, GPIO7);
-
-    char my_str[5];
-    eeprom_write(0x00, 0xCE);
-    gpio_set(GPIOA, GPIO7);
-    uint8_t read_val = eeprom_read(0x00);
-    sprintf(my_str, "0x%x", read_val);
-    uart_debug(my_str, 5);
-    gpio_clear(GPIOA, GPIO7);
-
-
+    for(int i = 0; i < 5000000; i++);
+    led_pwm_init();
     timer_setup();
+
+    timer_disable_counter(TIM2);
+    uint8_t read_volume = eeprom_read(VOLUME_ADDRESS);
+    if((read_volume < 20) || (read_volume > 127)){
+        read_volume = 20;
+    }
+
+    uint32_t oc_blue = led_B1 + (uint32_t)((led_B2 - led_B1) * read_volume);
+    uint32_t oc_red = led_R1 + (uint32_t)((led_R2 - led_R1) * read_volume);
+    uint32_t oc_white = led_W1 + (uint32_t)((led_W2 - led_W1) * read_volume);
+    uint32_t oc_green = led_G1 + (uint32_t)((led_G2 - led_G1) * read_volume);
+
+    timer_set_oc_value(TIM3, TIM_OC2, oc_blue);
+    timer_set_oc_value(TIM3, TIM_OC1, oc_white);
+    timer_set_oc_value(TIM4, TIM_OC2, oc_red);
+    timer_set_oc_value(TIM2, TIM_OC1, oc_green);
+
+    usart_send_blocking(USART2, 0xB0);
+    usart_send_blocking(USART2, 0x07);
+    usart_send_blocking(USART2, read_volume);
+
+    timer_enable_counter(TIM2);
 
     uint16_t sensors_this = 0;
     uint16_t sensors_prev = 0;
     uint8_t sensor_divide = 0;
-    uint8_t volume = 0;
+    uint8_t volume = read_volume;
+    timer_disable_counter(TIM2);
     sensors_prev = mpr121_get_touch();
+    timer_enable_counter(TIM2);
+
     uint16_t sensor_this_median = 0;
     uint16_t sensor_prev_median = 0;
     uint8_t sensor_bit_this_cnt = 0;
     uint8_t sensor_bit_prev_cnt = 0;
     uint16_t sensors_time_cnt = 0;
+    uint32_t volume_i2c_time_cnt = 0;
+    uint8_t volume_change_event = 0;
 
     while (1) {
         for(int i = 0; i < 200; i++);
         sensors_time_cnt++;
+        volume_i2c_time_cnt++;
+        if((volume_i2c_time_cnt > 5000) && (volume_change_event == 1)){
+            volume_i2c_time_cnt = 0;
+            volume_change_event = 0;
+            timer_disable_counter(TIM2);
+            eeprom_write(VOLUME_ADDRESS, volume);
+            timer_enable_counter(TIM2);
+        }
         if(sensors_time_cnt >= 1000) {
             sensors_time_cnt = 0;
+
+            timer_disable_counter(TIM2);
             sensors_this = mpr121_get_touch();
+            timer_enable_counter(TIM2);
 
             if(sensors_this ^ sensors_prev){
+                volume_change_event = 1;
                 sensor_this_median = 0;
                 sensor_prev_median = 0;
                 sensor_bit_this_cnt = 0;
@@ -426,12 +509,22 @@ int main(void) {
                     if(volume > 127)
                         volume = 0;
                 }
+                timer_disable_counter(TIM2);
                 usart_send_blocking(USART2, 0xB0);
                 usart_send_blocking(USART2, 0x07);
                 usart_send_blocking(USART2, volume);
+                uint32_t oc_blue = led_B1 + (uint32_t)((led_B2 - led_B1) * volume);
+                uint32_t oc_red = led_R1 + (uint32_t)((led_R2 - led_R1) * volume);
+                uint32_t oc_white = led_W1 + (uint32_t)((led_W2 - led_W1) * volume);
+                uint32_t oc_green = led_G1 + (uint32_t)((led_G2 - led_G1) * volume);
+                timer_set_oc_value(TIM3, TIM_OC2, oc_blue);
+                timer_set_oc_value(TIM3, TIM_OC1, oc_white);
+                timer_set_oc_value(TIM4, TIM_OC2, oc_red);
+                timer_set_oc_value(TIM2, TIM_OC1, oc_green);
+                timer_enable_counter(TIM2);
             }
             sensors_prev = sensors_this;
-        }
 
+        }
     }
 }
